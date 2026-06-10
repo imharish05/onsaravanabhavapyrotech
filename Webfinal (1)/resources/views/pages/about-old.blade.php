@@ -177,7 +177,7 @@
 <style>
     .about-section {
   padding: 80px 0;
-  background: #f5f5f5;
+  /* background: #f5f5f5; */
 }
 
 

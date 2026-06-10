@@ -514,7 +514,7 @@
             display: block;
             width: 48px;
             height: 3px;
-            background: linear-gradient(90deg, var(--gold-deep), var(--gold-light));
+            background: linear-gradient(90deg, #e53a12, var(--gold-light));
             border-radius: 2px;
             margin: 16px auto 0;
         }
@@ -527,7 +527,7 @@
        ======================== */
         .about-section {
             padding: 130px 40px;
-            background: #3d3d43;
+            /* background: #3d3d43; */
             position: relative;
             overflow: hidden;
         }
@@ -751,7 +751,7 @@
             font-size: clamp(2rem, 3.6vw, 3.1rem);
             font-weight: 900;
             line-height: 1.18;
-            color: #FFFFFF;
+            color: black;
             margin-bottom: 24px;
             text-shadow:
                 0 2px 10px rgba(255, 255, 255, .3),
@@ -771,7 +771,7 @@
 
         /* Body text with improved contrast */
         .about-body {
-            color: #e0e0e0;
+            color: black;
             font-size: 1.02rem;
             line-height: 1.92;
             margin-bottom: 38px;
@@ -875,7 +875,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: linear-gradient(135deg, #FFFFFF 0%, #F0A832 50%, #D4860A 100%);
+            background: linear-gradient(135deg, #FFFFFF 0%, #e53a12 50%, #e53a12 100%);
             background-size: 200% 100%;
             color: #111;
             font-weight: 900;
@@ -1024,7 +1024,7 @@
             font-family: var(--font-display);
             font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #FFF 0%, #F0A832 100%);
+            background: linear-gradient(135deg, #FFF 0%, #e53a12 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1046,7 +1046,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #F0A832, #D4860A);
+            background: linear-gradient(135deg, #e53a12, #e53a12);
             color: #fff;
             font-weight: 800;
             font-size: .88rem;
@@ -1360,7 +1360,7 @@
        ======================== */
         .categories-section {
             padding: 120px 40px;
-            background: #3d3d43;
+            /* background: #3d3d43; */
             /* Slightly lighter dark to contrast with Products #080810 */
             position: relative;
             overflow: hidden;
@@ -1393,26 +1393,26 @@
 
         .categories-section .section-eyebrow {
             display: inline-block;
-            color: #F0A832;
+            color: #e53a12 !important;
             font-size: .75rem;
             font-weight: 800;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             margin-bottom: 12px;
-            text-shadow: 0 0 10px rgba(240, 168, 50, .6);
+            /* text-shadow: 0 0 10px #e53a12; */
         }
 
         .categories-section .section-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 900;
-            color: #FFF;
+            color: #e53a12;
             text-shadow: 0 2px 10px rgba(255, 255, 255, .3), 0 0 40px rgba(255, 255, 255, .2);
             margin-bottom: 16px;
         }
 
         .categories-section .section-title span {
-            background: linear-gradient(135deg, #FFF 0%, #F0A832 50%, #D4860A 100%);
+            background: linear-gradient(135deg, #FFF 0%, #e53a12 50%, #e53a12 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1423,7 +1423,7 @@
             display: block;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #F0A832, #D4860A);
+            background: linear-gradient(90deg, #F0A832, #e53a12) !important;
             margin: 0 auto;
             border-radius: 2px;
             box-shadow: 0 0 10px rgba(240, 168, 50, .5);
@@ -1706,7 +1706,7 @@
        ======================== */
         .how-section {
             padding: 120px 40px;
-            background: #080810;
+            /* background: #080810; */
             /* Matching the deep dark theme */
             position: relative;
             overflow: hidden;
@@ -1749,26 +1749,26 @@
 
         .how-section .section-eyebrow {
             display: inline-block;
-            color: #F0A832;
+            color: #e53a12 !important;
             font-size: .75rem;
             font-weight: 800;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             margin-bottom: 12px;
-            text-shadow: 0 0 10px rgba(240, 168, 50, .6);
+            /* text-shadow: 0 0 10px rgba(240, 168, 50, .6); */
         }
 
         .how-section .section-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 900;
-            color: #FFF;
+            color: #e53a12;
             text-shadow: 0 2px 10px rgba(255, 255, 255, .3), 0 0 40px rgba(255, 255, 255, .2);
             margin-bottom: 16px;
         }
 
         .how-section .section-title span {
-            background: linear-gradient(135deg, #FFF 0%, #F0A832 50%, #D4860A 100%);
+            background: linear-gradient(135deg, #FFF 0%, #e53a12 50%, #e53a12 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1838,7 +1838,7 @@
             font-family: var(--font-display);
             font-size: 1.9rem;
             font-weight: 900;
-            color: #FFF;
+            color: black !important;
             text-shadow: 0 1px 4px rgba(0, 0, 0, .8), 0 0 12px rgba(255, 255, 255, .3);
             transition: .3s;
         }
@@ -3375,7 +3375,7 @@
                             <div class="hero-eyebrow">Sivakasi's Finest Since 1999</div>
                             <h1 class="hero-title">
                                 {!! str_replace(' ', ' ', $settings->welcome_heading) !!}
-                                <em>.</em>
+                                <!-- <em>.</em> -->
                             </h1>
                             <p class="hero-sub">{{ Str::limit(strip_tags($settings->welcome_text), 140) }}</p>
             <div class="hero-btns">
@@ -3442,7 +3442,7 @@
             <div class="about-tag">{{ $settings->hero_eyebrow ?? 'Est. Since 1999' }}</div>
             <h2 class="about-title">
                 {!! $settings->welcome_heading !!}
-                <em>.</em>
+                <!-- <em>.</em> -->
             </h2>
             <p class="about-body">{!! strip_tags($settings->welcome_text) !!}</p>
 
