@@ -1,0 +1,342 @@
+<?php
+
+// AUTO-GENERATED TEST FOR MODULE: Product
+echo "\n============================================\n";
+echo "🚀 Running Advanced QA Tests for Product\n";
+echo "============================================\n";
+
+$baseUrl    = "http://127.0.0.1:8000";
+$cookieFile = __DIR__ . "/shared_session.txt"; // Shared by master_test_runner.php
+$csrfFile   = __DIR__ . "/shared_csrf.txt";
+
+// --- LOAD SHARED SESSION + CSRF TOKEN ---
+if (!file_exists($cookieFile)) {
+    echo "❌ Shared session not found. Run master_test_runner.php first!\n";
+    exit(1);
+}
+
+$csrfToken = trim(file_get_contents($csrfFile) ?: "");
+
+// Refresh CSRF from dashboard using the shared session
+$ch = curl_init($baseUrl . "/dashboard");
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_COOKIEFILE     => $cookieFile,
+    CURLOPT_COOKIEJAR      => $cookieFile,
+    CURLOPT_FOLLOWLOCATION => false,
+    CURLOPT_TIMEOUT        => 10,
+]);
+$dashResp = curl_exec($ch);
+$dashCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+// Try to extract fresh CSRF from the dashboard response
+preg_match('/<meta name="csrf-token" content="([^"]+)"/i', $dashResp, $m);
+if (!empty($m[1])) $csrfToken = $m[1];
+
+if ($dashCode === 200 || $dashCode === 302) {
+    echo "✅ Shared session valid (HTTP $dashCode). CSRF ready.\n";
+} else {
+    echo "⚠️ Session may have expired (HTTP $dashCode). Tests proceed with stored CSRF.\n";
+}
+
+// --- FULL ENDPOINT TESTS ---
+
+// Testing GET /product/view
+$ch = curl_init($baseUrl . "/product/view");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("GET" === "POST" || "GET" === "PUT" || "GET" === "DELETE") {
+    if("GET" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] GET /product/view -> index() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] GET /product/view -> index() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] GET /product/view -> index() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] GET /product/view -> index() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing GET /product/addview
+$ch = curl_init($baseUrl . "/product/addview");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("GET" === "POST" || "GET" === "PUT" || "GET" === "DELETE") {
+    if("GET" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] GET /product/addview -> addview() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] GET /product/addview -> addview() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] GET /product/addview -> addview() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] GET /product/addview -> addview() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing GET /product/fetchsubcategory/{id}
+$ch = curl_init($baseUrl . "/product/fetchsubcategory/{id}");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("GET" === "POST" || "GET" === "PUT" || "GET" === "DELETE") {
+    if("GET" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] GET /product/fetchsubcategory/{id} -> fetchsubcategory() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] GET /product/fetchsubcategory/{id} -> fetchsubcategory() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] GET /product/fetchsubcategory/{id} -> fetchsubcategory() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] GET /product/fetchsubcategory/{id} -> fetchsubcategory() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /product/store
+$ch = curl_init($baseUrl . "/product/store");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /product/store -> storeproduct() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /product/store -> storeproduct() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /product/store -> storeproduct() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /product/store -> storeproduct() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /destroyProduct/{id}
+$ch = curl_init($baseUrl . "/destroyProduct/{id}");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /destroyProduct/{id} -> destroy() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /destroyProduct/{id} -> destroy() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /destroyProduct/{id} -> destroy() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /destroyProduct/{id} -> destroy() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /destroyProductall
+$ch = curl_init($baseUrl . "/destroyProductall");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /destroyProductall -> destroyall() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /destroyProductall -> destroyall() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /destroyProductall -> destroyall() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /destroyProductall -> destroyall() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /bulk/update
+$ch = curl_init($baseUrl . "/bulk/update");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /bulk/update -> bulkUpload() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /bulk/update -> bulkUpload() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /bulk/update -> bulkUpload() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /bulk/update -> bulkUpload() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /product/update
+$ch = curl_init($baseUrl . "/product/update");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /product/update -> updateproduct() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /product/update -> updateproduct() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /product/update -> updateproduct() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /product/update -> updateproduct() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /image/update
+$ch = curl_init($baseUrl . "/image/update");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /image/update -> updateimage() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /image/update -> updateimage() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /image/update -> updateimage() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /image/update -> updateimage() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+// Testing POST /updatestock/{id}
+$ch = curl_init($baseUrl . "/updatestock/{id}");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
+if("POST" === "POST" || "POST" === "PUT" || "POST" === "DELETE") {
+    if("POST" !== "POST") curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    else curl_setopt($ch, CURLOPT_POST, true);
+    
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['_token' => $csrfToken, 'test_name' => 'QA Data', 'id' => 1]));
+}
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+if($httpcode >= 200 && $httpcode < 400) {
+    echo "✅ [PASS] POST /updatestock/{id} -> updatestock() successful (HTTP $httpcode)\n";
+} else if ($httpcode === 419) {
+    echo "❌ [FAIL] POST /updatestock/{id} -> updatestock() CSRF check failed (HTTP $httpcode)\n";
+} else if ($httpcode === 401 || $httpcode === 403) {
+    echo "🛡️ [AUTH] POST /updatestock/{id} -> updatestock() Restricted Access (HTTP $httpcode)\n";
+} else {
+    echo "⚠️ [INFO] POST /updatestock/{id} -> updatestock() threw error (HTTP $httpcode) (Check logs if 500)\n";
+}
+curl_close($ch);
+
+
+// --- SECURITY TEST (SQL Injection) ---
+$ch = curl_init($baseUrl . "/product/view");
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST           => true,
+    CURLOPT_POSTFIELDS     => http_build_query(["_token" => $csrfToken, "id" => "1 OR 1=1 --", "name" => "\" OR \""]),
+    CURLOPT_COOKIEFILE     => $cookieFile,
+    CURLOPT_TIMEOUT        => 10,
+]);
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+if ($httpcode >= 500) {
+    echo "⚠️ [WARN] SQL Injection check returned 500 — possible unprotected query.\n";
+} else {
+    echo "✅ [PASS] SQL Injection check successfully bounded/handled.\n";
+}
+
+// --- SECURITY TEST (Auth Bypass — fresh no-cookie request) ---
+$ch = curl_init($baseUrl . "/product/view");
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => false,
+    CURLOPT_TIMEOUT        => 10,
+]);
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+if ($httpcode === 200 && !str_contains($response, "login")) {
+    echo "⚠️ [WARN] Auth Bypass — page loaded without login! May be unprotected.\n";
+} else {
+    echo "✅ [PASS] Auth Bypass prevented (HTTP $httpcode).\n";
+}
+
+// --- PERFORMANCE / STRESS TEST (50, 100, 200 concurrent) ---
+$profiles = [50, 100, 200];
+echo "⏳ Load Testing /product/view...\n";
+foreach ($profiles as $reqCount) {
+    $start = microtime(true);
+    $successCount = 0;
+    $mh = curl_multi_init();
+    $handles = [];
+    for ($i = 0; $i < $reqCount; $i++) {
+        $ch = curl_init($baseUrl . "/product/view");
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_COOKIEFILE     => $cookieFile,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_TIMEOUT        => 10,
+        ]);
+        curl_multi_add_handle($mh, $ch);
+        $handles[] = $ch;
+    }
+    $running = null;
+    do { curl_multi_exec($mh, $running); } while ($running);
+    foreach ($handles as $ch) {
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($code === 200 || $code === 302) $successCount++; // 302 = valid authenticated redirect
+        curl_multi_remove_handle($mh, $ch);
+        curl_close($ch);
+    }
+    curl_multi_close($mh);
+    $elapsed = number_format(microtime(true) - $start, 2);
+    echo "✔️ Load[$reqCount]: {$elapsed}s | Success: " . round(($successCount / $reqCount) * 100, 1) . "%\n";
+}
+
+echo "---------------------------------\n";

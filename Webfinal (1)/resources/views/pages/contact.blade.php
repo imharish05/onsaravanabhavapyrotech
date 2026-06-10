@@ -1,0 +1,1775 @@
+@extends('layouts.default')
+
+@section('main-page')
+
+<div class="main-page-wrap">
+    <!-- ========================
+             PREMIUM HERO BANNER
+             ======================== -->
+    <section class="premium-hero">
+        <div class="hero-parallax-bg"
+            style="background-image: url('{{ $contact->banner_image ? env('MAIN_URL', '/') . $contact->banner_image : asset('assets/img/contact-premium.png') }}');">
+        </div>
+        <div class="hero-glass-overlay"></div>
+        <div id="stars-container"></div>
+
+        <div class="hero-content-wrap">
+            <div class="container">
+                <div class="hero-text-center">
+                    <span class="hero-eyebrow"><i class="fa-solid fa-headset"></i> {{ $contact->hero_eyebrow ?? '24/7 Concierge' }}</span>
+                    <h1 class="hero-display-title">{!! $contact->hero_title ?? 'Connect with<span> Excellence</span>' !!}</h1>
+                    <div class="hero-sep"></div>
+                    <p class="hero-subtitle">{{ $contact->hero_subtitle ?? 'Our dedicated team is here to assist you with inquiries, bulk orders, and celebratory planning.' }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-prompt">
+            <div class="scroll-mouse">
+                <span class="scroll-dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+             CONTACT INTERFACE
+             ======================== -->
+    <section class="contact-interface">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Information Column -->
+                <div class="col-lg-5">
+                    <div class="contact-info-wrap">
+                        <span class="c-eyebrow">Direct Contact</span>
+                        <h2 class="c-title">{{ $contact->heading ?? 'How can we help?<em></em>' }}</h2>
+                        <div class="c-bar"></div>
+                        <p class="c-desc">
+                            {{ strip_tags($contact->subheading ?? 'Our representatives at Sivakasi are ready to handle your celebration needs with precision and care.') }}
+                        </p>
+
+                        <div class="info-grid">
+                            <!-- Address -->
+                            <div class="info-block">
+                                <div class="ib-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="ib-content">
+                                    <h6>Mailing Address</h6>
+                                    <p>{{ $contact->address ?? 'No. 12, Main Bazaar, Sivakasi – 626123' }}</p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="info-block">
+                                <div class="ib-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                <div class="ib-content">
+                                    <h6>Speak to an Artisan</h6>
+                                    <p>
+                                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $contact->phone ?? '') }}">{{ $contact->phone ?? '+91 90259 78152' }}</a>
+                                        @if($contact->phone_2)
+                                        <span class="mx-2 text-white-50">|</span>
+                                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $contact->phone_2) }}">{{ $contact->phone_2 }}</a>
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="info-block">
+                                <div class="ib-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                                <div class="ib-content">
+                                    <h6>Digital Inquiry</h6>
+                                    <p><a href="mailto:{{ $contact->email ?? '' }}">{{ $contact->email ??
+                                                'care@SriShyamcrackers.com' }}</a></p>
+                                </div>
+                            </div>
+
+                            <!-- WhatsApp Highlight -->
+                            <div class="info-block wa-highlight">
+                                <div class="ib-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                                <div class="ib-content">
+                                    <h6>WhatsApp Concierge</h6>
+                                    <p><a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contact->phone ?? '') }}"
+                                            target="_blank">Chat with us instantly</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="col-lg-7">
+                    <div class="contact-form-glass">
+                        <div class="form-header">
+                            <h3>Send a Message</h3>
+                            <p>Fill out the form below and we'll respond within 24 hours.</p>
+                        </div>
+
+                        @if(session('success'))
+                        <div class="alert-premium-success">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>{{ session('success') }}</span>
+                        </div>
+                        @endif
+
+                        <form action="{{ url('/contact') }}" method="POST" class="luxury-form">
+                            @csrf
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="input-group-f">
+                                        <label>Full Name</label>
+                                        <input type="text" name="name" value="{{ old('name') }}" placeholder="John Doe"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group-f">
+                                        <label>Phone Number</label>
+                                        <input type="text" name="phone" value="{{ old('phone') }}"
+                                            placeholder="+91 00000 00000">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input-group-f">
+                                        <label>Email Address</label>
+                                        <input type="email" name="email" value="{{ old('email') }}"
+                                            placeholder="john@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="input-group-f">
+                                        <label>Your Message</label>
+                                        <textarea name="message" rows="5"
+                                            placeholder="Tell us about your celebration needs..."
+                                            required>{{ old('message') }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="cta-btn-gold">
+                                        <span>Submit Message</span>
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+             HOW TO ORDER (PREMIUM DARK)
+             ======================== -->
+    <!--<section class="process-section">-->
+    <!--    <div class="section-pattern-overlay"></div>-->
+    <!--    <div class="container">-->
+    <!--        <div class="section-header text-center mb-5">-->
+    <!--            <span class="c-eyebrow">Seamless Experience</span>-->
+    <!--            <h2 class="c-title">How to <span>Order</span></h2>-->
+    <!--            <div class="c-bar mx-auto"></div>-->
+    <!--        </div>-->
+
+    <!--        <div class="row g-4 justify-content-center">-->
+                <!-- Step 1 -->
+    <!--            <div class="col-lg-3 col-md-6">-->
+    <!--                <div class="step-item-glass">-->
+    <!--                    <div class="step-num">01</div>-->
+    <!--                    <h5>{{ $contact->step1_title ?? 'Select Varieties' }}</h5>-->
+    <!--                    <p>{{ $contact->step1_text ?? 'Explore our premium collection and add your favorites to the cart.' }}</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+                <!-- Step 2 -->
+    <!--            <div class="col-lg-3 col-md-6">-->
+    <!--                <div class="step-item-glass">-->
+    <!--                    <div class="step-num">02</div>-->
+    <!--                    <h5>{{ $contact->step2_title ?? 'Secure Estimate' }}</h5>-->
+    <!--                    <p>{{ $contact->step2_text ?? 'Review your selection and generate a detailed price estimate.' }}</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+                <!-- Step 3 -->
+    <!--            <div class="col-lg-3 col-md-6">-->
+    <!--                <div class="step-item-glass">-->
+    <!--                    <div class="step-num">03</div>-->
+    <!--                    <h5>{{ $contact->step3_title ?? 'Verify & Pay' }}</h5>-->
+    <!--                    <p>{{ $contact->step3_text ?? 'Our concierge will verify stock and guide you through payment.' }}</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+                <!-- Step 4 -->
+    <!--            <div class="col-lg-3 col-md-6">-->
+    <!--                <div class="step-item-glass">-->
+    <!--                    <div class="step-num">04</div>-->
+    <!--                    <h5>{{ $contact->step4_title ?? 'Swift Delivery' }}</h5>-->
+    <!--                    <p>{{ $contact->step4_text ?? 'Receive your spectacular fireworks safely at your doorstep.' }}</p>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
+
+    <!-- ========================
+             PREMIUM GEOLOCATION
+             ======================== -->
+    <section class="premium-map-area">
+        <div class="container">
+            <div class="map-frame-wrap wow zoomIn" data-wow-delay="0.2s">
+                <div class="map-inner-shadow"></div>
+                <div class="map-container-premium">
+                    {!! $contact->map_iframe ?? '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31481.56448348888!2d77.7766311743164!3d9.430030099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06e903f0b00001%3A0x7d8a6e8b7d8a6e8b!2sSivakasi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1713334216342!5m2!1sen!2sin" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>' !!}
+                </div>
+
+                {{-- <div class="map-pin-badge">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Our Sivakasi Headquarters</span>
+                    </div> --}}
+            </div>
+        </div>
+    </section>
+
+    <style>
+        :root {
+            /* Core Palette */
+            --gold: #D4860A;
+            --gold-deep: #B86E00;
+            --gold-light: #F0A832;
+            --gold-pale: rgba(212, 134, 10, 0.1);
+            --saffron: #E87B2D;
+
+            /* Neutrals - DARK TRANSFORMATION */
+            --bg: #080810;
+            /* Deep Midnight */
+            --surface-1: #0c0c18;
+            /* Dark Indigo */
+            --surface-2: #121224;
+            --surface-3: #1a1a30;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-gold: rgba(212, 134, 10, 0.3);
+            --ink: #FFFFFF;
+            --muted: #A0A0A0;
+            --subtle: #888888;
+            --radius-lg: 32px;
+            --radius-md: 20px;
+            --radius-sm: 8px;
+            --shadow-premium: 0 20px 60px rgba(0, 0, 0, 0.8);
+            --font-display: 'Outfit', sans-serif;
+        }
+
+        #fireworks-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        #petal-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .main-page-wrap {
+            position: relative;
+            z-index: 1;
+            isolation: isolate;
+            width: 100%;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at 50% 8%, rgba(212, 134, 10, 0.14), transparent 34rem),
+                linear-gradient(180deg, #090910 0%, #080810 100%);
+        }
+
+        .main-page-wrap>section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .premium-hero .container,
+        .contact-interface .container,
+        .process-section .container,
+        .premium-map-area .container {
+            position: relative;
+            z-index: 4;
+        }
+
+        /* PREMIUM HERO Section */
+        .premium-hero {
+            height: 85vh;
+            min-height: 620px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .hero-parallax-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: 0.3s transform;
+            transform: scale(1.1);
+        }
+
+        .hero-glass-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 46%, rgba(240, 168, 50, 0.16), transparent 16rem),
+                linear-gradient(to bottom, rgba(8, 8, 16, 0.72), rgba(8, 8, 16, 0.96));
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-content-wrap {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            color: var(--gold-deep);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-display-title {
+            font-family: var(--font-display);
+            font-size: clamp(3.2rem, 8vw, 5.5rem);
+            line-height: 1.1;
+            color: var(--ink) !important;
+            margin-bottom: 20px;
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-display-title span {
+            background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: var(--font-accent);
+            filter: drop-shadow(0 0 16px rgba(255, 174, 0, 0.3));
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.82);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.08rem;
+            line-height: 1.6;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-sep {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold));
+            margin: 30px auto;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(240, 168, 50, 0.5);
+        }
+
+        /* Contact Interface */
+        .contact-interface {
+            padding: 130px 0;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+            color: var(--ink);
+        }
+
+        /* Ambient top-right golden aurora */
+        .contact-interface::before {
+            content: '';
+            position: absolute;
+            top: -250px;
+            right: -250px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(212, 134, 10, .18) 0%, rgba(232, 123, 45, .06) 45%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: auroraFloat 8s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        /* Ambient bottom-left counterpoint */
+        .contact-interface::after {
+            content: '';
+            position: absolute;
+            bottom: -180px;
+            left: -180px;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(100, 120, 255, .08) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes auroraFloat {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(30px, 20px) scale(1.08);
+            }
+        }
+
+        .contact-info-wrap {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Halo effect from home page */
+        .contact-info-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            filter: blur(50px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .c-eyebrow {
+            display: inline-block;
+            padding: 7px 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            color: #FFFFFF !important;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            box-shadow:
+                0 0 20px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .c-title {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: #FFFFFF !important;
+            font-weight: 900;
+            text-shadow:
+                0 2px 10px rgba(255, 255, 255, 0.3),
+                0 0 40px rgba(255, 255, 255, 0.2),
+                0 0 80px rgba(255, 255, 255, 0.1);
+            letter-spacing: -1px;
+        }
+
+        .c-bar {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold));
+            margin-bottom: 30px;
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(240, 168, 50, 0.5);
+        }
+
+        .c-desc {
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .info-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-block {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            padding: 26px 30px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 22px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow:
+                0 12px 48px rgba(255, 255, 255, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.3),
+                0 0 60px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .info-block:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow:
+                0 28px 72px rgba(255, 255, 255, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.6),
+                0 0 80px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        }
+
+        .info-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, .3) 0%, transparent 70%);
+            border-radius: inherit;
+            opacity: 1;
+            transition: opacity .3s;
+        }
+
+        .info-block:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255, 255, 255, .8);
+            box-shadow:
+                0 20px 52px rgba(255, 255, 255, .2),
+                0 0 0 1px rgba(255, 255, 255, .5),
+                0 0 40px rgba(255, 255, 255, .15),
+                inset 0 1px 0 rgba(255, 255, 255, .6);
+        }
+
+        .ib-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFFFFF, #F0A832);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #111;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            transition: all .4s cubic-bezier(.23, 1, .32, 1);
+            box-shadow:
+                0 0 0 4px rgba(255, 255, 255, .2),
+                0 8px 24px rgba(255, 255, 255, .15);
+        }
+
+        .ib-content h6 {
+            font-weight: 800;
+            color: var(--ink);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .ib-content p,
+        .ib-content a {
+            color: rgba(255, 255, 255, 0.74);
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: .3s;
+        }
+
+        .ib-content a:hover {
+            color: var(--gold-deep);
+        }
+
+        .info-block:hover .ib-icon {
+            transform: scale(1.1) translateY(-5px) rotate(5deg);
+            box-shadow:
+                0 0 0 6px rgba(255, 255, 255, .4),
+                0 0 0 12px rgba(255, 255, 255, .15),
+                0 8px 32px rgba(255, 255, 255, .3),
+                0 0 60px rgba(255, 255, 255, .2);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 6px rgba(255, 255, 255, .4), 0 0 0 12px rgba(255, 255, 255, .15), 0 8px 32px rgba(255, 255, 255, .3), 0 0 60px rgba(255, 255, 255, .2);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, .6), 0 0 0 20px rgba(255, 255, 255, .2), 0 12px 40px rgba(255, 255, 255, .4), 0 0 80px rgba(255, 255, 255, .3);
+            }
+        }
+
+        .wa-highlight .ib-icon {
+            background: rgba(37, 211, 102, 0.15);
+            color: #25D366;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .wa-highlight .ib-content a {
+            color: #25D366;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(37, 211, 102, 0.2);
+        }
+
+        .wa-highlight:hover .ib-icon {
+            background: #25D366;
+            color: #0b0b14;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Form Glass */
+        .contact-form-glass {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 60px;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow:
+                0 40px 100px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.3),
+                0 0 80px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .contact-form-glass::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), transparent, rgba(240, 168, 50, 0.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+        }
+
+        .form-header h3 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 12px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            letter-spacing: -1px;
+        }
+
+        .form-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+        }
+
+        .input-group-f {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+
+        .input-group-f label {
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+            padding-left: 5px;
+        }
+
+        .input-group-f input,
+        .input-group-f textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #FFFFFF !important;
+            padding: 18px 24px;
+            border-radius: 15px;
+            font-weight: 500;
+            transition: all .4s cubic-bezier(0.23, 1, 0.32, 1);
+            font-size: 1rem;
+        }
+
+        .input-group-f input::placeholder,
+        .input-group-f textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .input-group-f input:focus,
+        .input-group-f textarea:focus {
+            outline: none;
+            border-color: rgba(240, 168, 50, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 0 0 4px rgba(240, 168, 50, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .alert-premium-success {
+            background: rgba(46, 125, 50, 0.15);
+            color: #81c784;
+            padding: 22px;
+            border-radius: 20px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-btn-gold {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F0A832 50%, #D4860A 100%);
+            background-size: 200% 100%;
+            color: #111;
+            font-weight: 900;
+            font-size: 1.05rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 22px 55px;
+            border-radius: 60px;
+            border: none;
+            box-shadow:
+                0 10px 40px rgba(240, 168, 50, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all .5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .cta-btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            transition: 0.6s ease-in-out;
+            transform: skewX(-25deg);
+        }
+
+        .cta-btn-gold:hover {
+            background-position: 100% 0;
+            transform: translateY(-5px) scale(1.02);
+            box-shadow:
+                0 20px 50px rgba(240, 168, 50, 0.4),
+                0 0 0 8px rgba(240, 168, 50, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+
+        .cta-btn-gold:hover::before {
+            left: 150%;
+        }
+
+        .cta-btn-gold i {
+            font-size: 1.1rem;
+            transition: transform .3s ease;
+        }
+
+        .cta-btn-gold:hover i {
+            transform: translateX(5px) rotate(-10deg);
+        }
+
+        /* Map Section (Refined) */
+        .premium-map-area {
+            padding: 0 0 110px;
+            background: linear-gradient(180deg, rgba(12, 12, 24, 0.98), rgba(8, 8, 16, 0.98));
+            position: relative;
+        }
+
+        .map-frame-wrap {
+            position: relative;
+            z-index: 2;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(240, 168, 50, 0.22);
+            background: #11111d;
+        }
+
+        .map-inner-shadow {
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .map-container-premium iframe {
+            width: 100% !important;
+            height: 500px !important;
+            filter: grayscale(0.8) contrast(1.1) brightness(0.9);
+            transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            vertical-align: bottom;
+            display: block;
+        }
+
+        .map-frame-wrap:hover .map-container-premium iframe {
+            filter: grayscale(0) contrast(1) brightness(1);
+        }
+
+        .map-pin-badge {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-gold);
+        }
+
+        .map-pin-badge i {
+            color: var(--gold-light);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 5px rgba(240, 168, 50, 0.5));
+        }
+
+        .map-pin-badge span {
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--ink);
+            letter-spacing: 1px;
+        }
+
+        /* Process Section (How to Order) */
+        .process-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, rgba(10, 10, 20, 0.95), rgba(15, 15, 30, 0.98));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-pattern-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(240, 168, 50, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .step-item-glass {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 50px 40px;
+            border-radius: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .step-item-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(240, 168, 50, 0.15), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .step-item-glass:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(240, 168, 50, 0.5);
+            box-shadow:
+                0 40px 80px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(240, 168, 50, 0.2),
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+        }
+
+        .step-item-glass:hover::before {
+            opacity: 1;
+        }
+
+        .step-num {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(240, 168, 50, 0.3);
+            line-height: 1;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .step-item-glass:hover .step-num {
+            -webkit-text-stroke: 1px rgba(240, 168, 50, 0.8);
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(240, 168, 50, 0.3);
+        }
+
+        .step-item-glass h5 {
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .step-item-glass p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 991px) {
+
+            .contact-interface,
+            .process-section {
+                padding: 80px 0;
+            }
+
+            .hero-display-title {
+                font-size: 3rem;
+            }
+
+            .contact-form-glass {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .premium-map-area {
+                padding-bottom: 60px;
+            }
+
+            .map-frame-wrap {
+                border-radius: 20px;
+                background: #11111d;
+                border: 1px solid rgba(240, 168, 50, 0.22);
+            }
+
+            .map-pin-badge {
+                top: 20px;
+                left: 20px;
+                padding: 8px 15px;
+            }
+
+            .step-item-glass {
+                padding: 40px 25px;
+            }
+        }
+
+        /* Stars Animation */
+        #stars-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--gold-light);
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* ATMOSPHERIC ELEMENTS */
+        #fireworks-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+        }
+
+        #petal-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .smoke-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 134, 10, 0.05) 0%, transparent 70%);
+            animation: smokeDrift 20s linear infinite alternate;
+        }
+
+        .smoke-puff {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 180, 140, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            animation: puffUp var(--sd, 2s) ease-out forwards;
+        }
+
+        @keyframes puffUp {
+            0% {
+                opacity: 0.7;
+                transform: scale(0.5) translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.8) translateY(var(--sy, -80px));
+            }
+        }
+
+        .atom-flash {
+            position: fixed;
+            left: var(--fx, 50%);
+            top: var(--fy, 50%);
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 220, 100, 0.5) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: flashOut 0.7s ease-out forwards;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        @keyframes flashOut {
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+
+        @keyframes smokeDrift {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.1) translate(-20px, 10px);
+            }
+        }
+
+        /* SCROLL PROMPT */
+        .scroll-prompt {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .scroll-mouse {
+            width: 26px;
+            height: 42px;
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% {
+                opacity: 1;
+                top: 8px;
+            }
+
+            100% {
+                opacity: 0;
+                top: 24px;
+            }
+        }
+
+        /* GROUND LAYER */
+        .ground-layer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .About-footer {
+            position: relative;
+            z-index: 10;
+        }
+
+        .chakkar {
+            position: absolute;
+            bottom: 20px;
+            width: 36px;
+            height: 36px;
+        }
+
+        .chakkar-inner {
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold-light);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.3s linear infinite;
+            box-shadow: 0 0 20px rgba(240, 168, 50, 0.5);
+        }
+
+        .flowerpot-wrap {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .flowerpot-body {
+            width: 24px;
+            height: 30px;
+            background: linear-gradient(to bottom, #5c2d0a, #2a1505);
+            clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+        }
+
+        .roman-wrap {
+            position: absolute;
+            bottom: 0;
+        }
+
+        .roman-tube {
+            width: 12px;
+            height: 50px;
+            background: linear-gradient(to right, #444, #666, #444);
+            border-radius: 2px;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media screen and (width: 768px) and (height: 1024px) {
+
+        .f-grid {
+            grid-template-columns: 1fr 1fr !important;
+        }
+        }
+        @media screen and (width: 820px) and (height: 1180px) {
+
+        .f-grid {
+            grid-template-columns: 1fr 1fr !important;
+        }
+        }
+        @media screen and (width: 540px) and (height: 720px) {
+
+        .f-grid {
+            grid-template-columns: 1fr 1fr !important;
+        }
+        }
+        
+    </style>
+
+
+    @push('scripts')
+    <script>
+        (function() {
+            /* ── PARALLAX ── */
+            window.addEventListener('scroll', () => {
+                const bg = document.querySelector('.hero-parallax-bg');
+                if (bg) bg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.3}px)`;
+            });
+
+            /* ── STARS (DOM) ── */
+            const starsContainer = document.getElementById('stars-container');
+            if (starsContainer) {
+                for (let i = 0; i < 100; i++) {
+                    const s = document.createElement('div');
+                    s.className = 'star';
+                    const sz = Math.random() * 2 + 1;
+                    s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random() * 100}%;top:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s;animation-duration:${Math.random() * 2 + 2}s;`;
+                    starsContainer.appendChild(s);
+                }
+            }
+
+            /* ── 1. SHARED ANIMATION CONTEXT ── */
+            const petalCanvas = document.getElementById('petal-canvas');
+            const fwCanvas = document.getElementById('fireworks-canvas');
+            let pctx = null,
+                pW, pH;
+            const petals = [];
+            const petalColors = ['#FFD700', '#FFA500', '#FF8C00', '#FF4500'];
+
+            let mx = 0,
+                my = 0,
+                rx = 0,
+                ry = 0;
+
+            if (petalCanvas) {
+                pctx = petalCanvas.getContext('2d');
+                const pResize = () => {
+                    pW = petalCanvas.width = window.innerWidth;
+                    pH = petalCanvas.height = window.innerHeight;
+                };
+                pResize();
+                window.addEventListener('resize', pResize);
+            }
+
+            class Petal {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * pW;
+                    this.y = -20;
+                    this.size = Math.random() * 5 + 2;
+                    this.speed = Math.random() * 1.5 + 0.5;
+                    this.swing = Math.random() * 2;
+                    this.swingSpeed = Math.random() * 0.05 + 0.02;
+                    this.angle = Math.random() * Math.PI * 2;
+                    this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
+                    this.opacity = Math.random() * 0.5 + 0.3;
+                }
+                update() {
+                    this.y += this.speed;
+                    this.x += Math.sin(this.angle) * this.swing;
+                    this.angle += this.swingSpeed;
+                    if (this.y > pH) this.reset();
+                }
+                draw() {
+                    pctx.beginPath();
+                    pctx.ellipse(this.x, this.y, this.size, this.size / 1.5, this.angle, 0, Math.PI * 2);
+                    pctx.fillStyle = this.color;
+                    pctx.globalAlpha = this.opacity;
+                    pctx.fill();
+                }
+            }
+
+            if (petalCanvas) {
+                for (let i = 0; i < 60; i++) petals.push(new Petal());
+            }
+
+            /* ── 2. CUSTOM FIREWORKS ENGINE ── */
+            if (fwCanvas) {
+                const ctx = fwCanvas.getContext('2d');
+                let W, H;
+
+                function resize() {
+                    W = fwCanvas.width = window.innerWidth;
+                    H = fwCanvas.height = window.innerHeight;
+                }
+                resize();
+                window.addEventListener('resize', resize);
+
+                const PI2 = Math.PI * 2;
+                const rand = (a, b) => Math.random() * (b - a) + a;
+                const randI = (a, b) => Math.floor(rand(a, b + 1));
+                const particles = [];
+                const stars = [];
+                const groundEl = document.getElementById('groundLayer');
+
+                // Create Stars
+                for (let i = 0; i < 120; i++) {
+                    stars.push({
+                        x: Math.random() * window.innerWidth,
+                        y: Math.random() * window.innerHeight,
+                        size: Math.random() * 1.5,
+                        opacity: Math.random(),
+                        twinkleSpeed: Math.random() * 0.015 + 0.005
+                    });
+                }
+
+                window.spawnSparklerParticle = function(x, y) {
+                    const angle = rand(0, PI2),
+                        spd = rand(1, 4);
+                    particles.push({
+                        kind: 'sparkle',
+                        x,
+                        y,
+                        vx: Math.cos(angle) * spd,
+                        vy: Math.sin(angle) * spd,
+                        hue: rand(30, 60),
+                        alpha: 1,
+                        life: rand(8, 18),
+                        maxLife: 18,
+                        size: rand(1, 2.5),
+                        gravity: 0.08,
+                        friction: 0.93
+                    });
+                };
+                window.spawnFlowerPotParticle = function(x, y) {
+                    const angle = rand(-Math.PI, 0) - Math.PI / 2 + rand(-0.6, 0.6),
+                        spd = rand(2, 8);
+                    particles.push({
+                        kind: 'flower',
+                        x,
+                        y,
+                        vx: Math.cos(angle) * spd,
+                        vy: Math.sin(angle) * spd,
+                        hue: rand(30, 60),
+                        alpha: 1,
+                        life: rand(25, 55),
+                        maxLife: 55,
+                        size: rand(1.5, 3),
+                        gravity: 0.12,
+                        friction: 0.96
+                    });
+                };
+
+                function spawnRomanBall(x, y) {
+                    const hue = randI(0, 360);
+                    particles.push({
+                        kind: 'romanball',
+                        x,
+                        y,
+                        vx: rand(-0.8, 0.8),
+                        vy: rand(-9, -5),
+                        hue,
+                        alpha: 1,
+                        life: rand(45, 70),
+                        maxLife: 70,
+                        size: rand(3, 5),
+                        gravity: 0.15,
+                        friction: 0.99
+                    });
+                }
+
+                function addSmoke(x, y) {
+                    const puff = document.createElement('div');
+                    puff.className = 'smoke-puff';
+                    const sz = rand(30, 80);
+                    puff.style.cssText = `left:${x - sz / 2}px;top:${y - sz / 2}px;width:${sz}px;height:${sz}px;--sy:-${rand(60, 120)}px;--sd:${rand(1.5, 3)}s;`;
+                    document.body.appendChild(puff);
+                    setTimeout(() => puff.remove(), 3100);
+                }
+
+                window.addChakkar = function() {
+                    if (!groundEl) return;
+                    const el = document.createElement('div');
+                    el.className = 'chakkar';
+                    el.style.left = rand(5, 90) + '%';
+                    el.innerHTML = '<div class="chakkar-inner"></div>';
+                    groundEl.appendChild(el);
+                    const duration = rand(4000, 8000);
+                    const iv = setInterval(() => {
+                        const r = el.getBoundingClientRect();
+                        for (let i = 0; i < 4; i++) {
+                            const a = rand(0, PI2),
+                                s = rand(1, 4);
+                            particles.push({
+                                kind: 'sparkle',
+                                x: r.left + 18,
+                                y: r.top + 18,
+                                vx: Math.cos(a) * s,
+                                vy: Math.sin(a) * s,
+                                hue: rand(0, 60),
+                                alpha: 1,
+                                life: rand(10, 22),
+                                maxLife: 22,
+                                size: rand(1, 2.5),
+                                gravity: 0.07,
+                                friction: 0.94
+                            });
+                        }
+                    }, 40);
+                    setTimeout(() => {
+                        clearInterval(iv);
+                        el.style.transition = 'opacity .5s';
+                        el.style.opacity = '0';
+                        setTimeout(() => el.remove(), 600);
+                    }, duration);
+                };
+
+                window.addFlowerPot = function() {
+                    if (!groundEl) return;
+                    const wrap = document.createElement('div');
+                    wrap.className = 'flowerpot-wrap';
+                    wrap.style.left = rand(5, 90) + '%';
+                    wrap.innerHTML = '<div class="flowerpot-body"></div>';
+                    groundEl.appendChild(wrap);
+                    const duration = rand(4000, 7000);
+                    const iv = setInterval(() => {
+                        const r = wrap.getBoundingClientRect();
+                        for (let i = 0; i < 5; i++) spawnFlowerPotParticle(r.left + 12, r.top);
+                    }, 45);
+                    setTimeout(() => {
+                        clearInterval(iv);
+                        wrap.style.transition = 'opacity .5s';
+                        wrap.style.opacity = '0';
+                        setTimeout(() => wrap.remove(), 600);
+                    }, duration);
+                };
+
+                window.addRomanCandle = function() {
+                    if (!groundEl) return;
+                    const wrap = document.createElement('div');
+                    wrap.className = 'roman-wrap';
+                    wrap.style.left = rand(5, 90) + '%';
+                    wrap.innerHTML = '<div class="roman-tube"></div>';
+                    groundEl.appendChild(wrap);
+                    let shotCount = 0;
+                    const maxShots = randI(5, 12);
+
+                    function shootBall() {
+                        if (shotCount >= maxShots) {
+                            wrap.style.transition = 'opacity .5s';
+                            wrap.style.opacity = '0';
+                            setTimeout(() => wrap.remove(), 600);
+                            return;
+                        }
+                        const r = wrap.getBoundingClientRect();
+                        spawnRomanBall(r.left + 5, r.top - 5);
+                        shotCount++;
+                        setTimeout(shootBall, rand(400, 900));
+                    }
+                    setTimeout(shootBall, rand(100, 500));
+                };
+
+                function launchAerial(sx, sy, tx, ty) {
+                    const hue = randI(0, 360),
+                        style = randI(0, 4);
+                    particles.push({
+                        kind: 'rocket',
+                        x: sx,
+                        y: sy,
+                        tx,
+                        ty,
+                        vx: (tx - sx) / 55,
+                        vy: (ty - sy) / 55,
+                        life: 55,
+                        maxLife: 55,
+                        hue,
+                        style,
+                        trail: [],
+                        size: rand(2.5, 3.5),
+                        done: false
+                    });
+                }
+
+                function explodeAerial(x, y, hue, style) {
+                    particles.push({
+                        kind: 'flash',
+                        x,
+                        y,
+                        life: 12,
+                        maxLife: 12,
+                        hue
+                    });
+                    const count = randI(70, 130);
+                    if (typeof gsap !== 'undefined') {
+                        gsap.to({}, {
+                            duration: 0.1,
+                            onComplete: () => {
+                                const shell = (ax, ay, a, s, h, l, comet = false) => {
+                                    particles.push({
+                                        kind: 'shell',
+                                        x: ax,
+                                        y: ay,
+                                        vx: Math.cos(a) * s,
+                                        vy: Math.sin(a) * s,
+                                        hue: h,
+                                        life: l,
+                                        maxLife: l,
+                                        alpha: 1,
+                                        size: rand(1.2, 2.8),
+                                        gravity: 0.055,
+                                        friction: 0.975,
+                                        comet,
+                                        trail: [],
+                                        trailLen: comet ? 10 : 4
+                                    });
+                                };
+                                if (style === 1)
+                                    for (let i = 0; i < count; i++) shell(x, y, (PI2 / count) * i, rand(3, 5.5), hue, rand(40, 70));
+                                else if (style === 2)
+                                    for (let i = 0; i < count; i++) shell(x, y, (PI2 / count) * i + rand(-.05, .05), rand(2, 7), hue + rand(-20, 20), rand(50, 90), true);
+                                else if (style === 3)
+                                    for (let i = 0; i < count * 1.5; i++) shell(x, y, rand(0, PI2), rand(.5, 4.5), hue + rand(-40, 40), rand(30, 55));
+                                else if (style === 4)
+                                    for (let i = 0; i < count; i++) {
+                                        const a = (PI2 / count) * i,
+                                            s = rand(1.5, 4.5);
+                                        particles.push({
+                                            kind: 'willow',
+                                            x,
+                                            y,
+                                            vx: Math.cos(a) * s,
+                                            vy: Math.sin(a) * s,
+                                            hue: hue + rand(-15, 15),
+                                            alpha: 1,
+                                            life: rand(60, 100),
+                                            maxLife: 100,
+                                            size: rand(1.5, 2.5),
+                                            gravity: 0.09,
+                                            friction: 0.985,
+                                            trail: [],
+                                            trailLen: 12
+                                        });
+                                    }
+                                else
+                                    for (let i = 0; i < count; i++) shell(x, y, (PI2 / count) * i + rand(-.12, .12), rand(1.5, 6.5), hue, rand(35, 65));
+                            }
+                        });
+                    }
+                    addSmoke(x, y);
+                }
+
+                /* ── MAIN ANIMATION LOOP ── */
+                function render() {
+                    if (document.hidden) {
+                        requestAnimationFrame(render);
+                        return;
+                    }
+
+                    // 1. Petals
+                    if (petalCanvas && pctx) {
+                        pctx.clearRect(0, 0, pW, pH);
+                        petals.forEach(p => {
+                            p.update();
+                            p.draw();
+                        });
+                    }
+
+                    // 2. Local variables update (for fireworks coordination if needed)
+                    rx += (mx - rx) * 0.15;
+                    ry += (my - ry) * 0.15;
+
+                    // 3. Fireworks Engine - match home page transparent trail fade
+                    ctx.globalCompositeOperation = 'destination-out';
+                    ctx.fillStyle = 'rgba(0,0,0,0.38)';
+                    ctx.fillRect(0, 0, W, H);
+                    ctx.globalCompositeOperation = 'lighter';
+
+                    // Draw Stars
+                    for (const st of stars) {
+                        st.opacity += st.twinkleSpeed * (Math.random() > 0.5 ? 1 : -1);
+                        st.opacity = Math.max(0.1, Math.min(1, st.opacity));
+                        ctx.beginPath();
+                        ctx.arc(st.x, st.y, st.size, 0, PI2);
+                        ctx.fillStyle = `rgba(255,230,150,${st.opacity})`;
+                        ctx.fill();
+                    }
+
+                    const dead = [];
+                    for (let i = 0; i < particles.length; i++) {
+                        const p = particles[i];
+                        if (p.kind === 'rocket') {
+                            p.x += p.vx;
+                            p.y += p.vy;
+                            p.life--;
+                            p.trail.push({
+                                x: p.x,
+                                y: p.y
+                            });
+                            if (p.trail.length > 8) p.trail.shift();
+                            for (let j = 0; j < p.trail.length; j++) {
+                                ctx.beginPath();
+                                ctx.arc(p.trail[j].x, p.trail[j].y, p.size * (j / p.trail.length) * 0.5, 0, PI2);
+                                ctx.fillStyle = `hsla(${p.hue},100%,70%,${(j / p.trail.length) * 0.5})`;
+                                ctx.fill();
+                            }
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.size, 0, PI2);
+                            ctx.fillStyle = `hsla(${p.hue},100%,90%,1)`;
+                            ctx.fill();
+                            if (p.life <= 0 && !p.done) {
+                                p.done = true;
+                                explodeAerial(p.x, p.y, p.hue, p.style);
+                                dead.push(i);
+                            }
+                        } else if (p.kind === 'flash') {
+                            p.life--;
+                            const a = p.life / p.maxLife;
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, (1 - a) * 60, 0, PI2);
+                            ctx.fillStyle = `hsla(${p.hue},100%,90%,${a * 0.4})`;
+                            ctx.fill();
+                            if (p.life <= 0) dead.push(i);
+                        } else {
+                            p.vx *= p.friction;
+                            p.vy *= p.friction;
+                            p.vy += p.gravity;
+                            p.x += p.vx;
+                            p.y += p.vy;
+                            p.life--;
+                            p.alpha = p.life / p.maxLife;
+                            if (p.trail !== undefined) {
+                                p.trail.push({
+                                    x: p.x,
+                                    y: p.y
+                                });
+                                if (p.trail.length > (p.trailLen || 4)) p.trail.shift();
+                                for (let j = 0; j < p.trail.length; j++) {
+                                    ctx.beginPath();
+                                    ctx.arc(p.trail[j].x, p.trail[j].y, p.size * (j / p.trail.length) * 0.6, 0, PI2);
+                                    ctx.fillStyle = `hsla(${p.hue},100%,70%,${(j / p.trail.length) * p.alpha * 0.5})`;
+                                    ctx.fill();
+                                }
+                            }
+                            ctx.beginPath();
+                            ctx.arc(p.x, p.y, p.size, 0, PI2);
+                            const lightness = (p.kind === 'romanball') ? 80 : 70;
+                            ctx.fillStyle = `hsla(${p.hue},100%,${lightness}%,${p.alpha})`;
+                            ctx.fill();
+                            if (p.life <= 0) dead.push(i);
+                        }
+                    }
+                    for (let i = dead.length - 1; i >= 0; i--) particles.splice(dead[i], 1);
+
+                    requestAnimationFrame(render);
+                }
+                render();
+
+                setInterval(() => launchAerial(rand(W * .25, W * .75), H, rand(W * .05, W * .95), rand(H * .06, H * .45)), 2200);
+                setInterval(() => {
+                    if (Math.random() > 0.45) addChakkar();
+                    if (Math.random() > 0.5) addFlowerPot();
+                    if (Math.random() > 0.65) addRomanCandle();
+                }, 4000);
+
+                window.addEventListener('click', e => {
+                    if (e.target.closest('a,button,.contact-form-glass,input,textarea,select,.map-wrap')) return;
+                    launchAerial(W / 2, H, e.clientX, e.clientY);
+                });
+            }
+
+            /* ── 3. CURSOR ── */
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX;
+                my = e.clientY;
+                if (Math.random() > 0.82 && typeof spawnSparklerParticle === 'function') spawnSparklerParticle(mx, my);
+            });
+
+            /* ── 4. GSAP REVEALS ── */
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.from('.hero-display-title', {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1.2,
+                    delay: 0.4,
+                    ease: 'power4.out'
+                });
+                gsap.from('.hero-subtitle', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 1,
+                    delay: 0.8,
+                    ease: 'power3.out'
+                });
+                gsap.from('.contact-info-wrap', {
+                    opacity: 0,
+                    x: -50,
+                    duration: 1,
+                    delay: 0.5,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '.contact-interface',
+                        start: 'top 80%'
+                    }
+                });
+                gsap.from('.contact-form-glass', {
+                    opacity: 0,
+                    x: 50,
+                    duration: 1,
+                    delay: 0.7,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '.contact-interface',
+                        start: 'top 80%'
+                    }
+                });
+                gsap.fromTo('.step-item-glass', {
+                    opacity: 1,
+                    y: 0
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.01,
+                    stagger: 0,
+                    scrollTrigger: {
+                        trigger: '.process-section',
+                        start: 'top 95%'
+                    }
+                });
+            }
+        })();
+    </script>
+    @endpush
+
+    <!-- FIREWORKS & ATMOSPHERE -->
+    <canvas id="petal-canvas"></canvas>
+    <canvas id="fireworks-canvas"></canvas>
+    <div class="smoke-overlay"></div>
+    <div class="ground-layer" id="groundLayer"></div>
+
+</div>
+@endsection
