@@ -59,28 +59,36 @@
             --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(255, 255, 255, 0.1); --luminous-border: 1.5px solid rgba(255, 255, 255, 0.4); --luminous-text: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
-        /* 1. HIDE THE DEFAULT CURSOR ONLY ON DESKTOP */
-        @media (min-width: 992px) {
-            body, html, * {
-                cursor: none !important;
-            }
+        /* SIMPLE PROFESSIONAL TRANSITIONS */
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* 2. STYLE THE CANVAS TO COVER THE FULL SCREEN */
-        #fireCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none; /* CRITICAL: Allows you to click buttons underneath the canvas */
-            z-index: 999999; /* Ensure it stays on top of all your website content */
+        button, a, input, select, textarea {
+            transition: background-color .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease, opacity .22s ease;
+        }
+
+        .animate__animated,
+        .wow,
+        [class*="animate"],
+        [class*="fade"],
+        [class*="slide"],
+        [class*="bounce"],
+        [class*="spinner"] {
+            animation-duration: 0.6s !important;
+            animation-timing-function: ease !important;
+            animation-iteration-count: 1 !important;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition-duration: .25s !important;
+            transition-timing-function: ease !important;
+            animation-duration: .55s !important;
+            animation-iteration-count: 1 !important;
+            animation-timing-function: ease !important;
         }
 
         html {
@@ -95,6 +103,22 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        button, a, input, select, textarea {
+            transition: background-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+        }
+
+        .animate__animated,
+        .wow,
+        [class*="animate"],
+        [class*="fade"],
+        [class*="slide"],
+        [class*="bounce"],
+        [class*="spinner"] {
+            animation-duration: 0.55s !important;
+            animation-timing-function: ease !important;
+            animation-iteration-count: 1 !important;
+        }
+
         /* Noise Texture Overlay */
         body::before {
             content: '';
@@ -106,41 +130,41 @@
             z-index: 9999;
         }
 
-        /* LUXURY PRELOADER */
+        /* SIMPLE PROFESSIONAL PRELOADER */
         #preloader {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, #080810, #0C0C18);
+            background: #080810;
             z-index: 100000;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: opacity 0.5s ease;
         }
 
         .preloader-inner {
             text-align: center;
-            padding: 50px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-            backdrop-filter: blur(25px);
-            border: var(--luminous-border);
-            border-radius: 40px;
-            box-shadow: var(--shadow-premium);
+            padding: 24px 28px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(18px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
         }
 
         .preloader-logo {
-            width: 130px;
+            width: 120px;
+            max-width: 100%;
             height: auto;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             filter: brightness(0) invert(1);
-            animation: preloaderPulse 2s infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+            animation: preloaderPulse 1.8s ease-in-out infinite;
         }
 
         .preloader-bar {
             width: 180px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -152,35 +176,21 @@
             left: 0;
             top: 0;
             height: 100%;
-            background: linear-gradient(to right, #FFFFFF, var(--gold-light), #FFFFFF);
-            width: 0%;
-            animation: preloaderFill 2s infinite;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.45);
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0.35;
         }
 
         @keyframes preloaderPulse {
-
-            0%,
-            100% {
-                opacity: 0.5;
-                transform: scale(0.95);
+            0%, 100% {
+                opacity: 0.8;
+                transform: translateY(0);
             }
 
             50% {
                 opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes preloaderFill {
-            0% {
-                left: -100%;
-                width: 100%;
-            }
-
-            100% {
-                left: 100%;
-                width: 100%;
+                transform: translateY(-2px);
             }
         }
 
@@ -265,8 +275,8 @@
         }
 
         .l-fab:hover {
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
         }
 
         .l-fab.wa {
@@ -289,24 +299,7 @@
         }
 
         .fab-ripple {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: inherit;
-            opacity: 0.4;
-            animation: fabRipple 2s infinite;
-        }
-
-        @keyframes fabRipple {
-            0% {
-                transform: scale(1);
-                opacity: 0.4;
-            }
-
-            100% {
-                transform: scale(2.2);
-                opacity: 0;
-            }
+            display: none;
         }
 
         /* GO TOP */
@@ -331,8 +324,8 @@
         .go-top-premium:hover {
             background: #FFFFFF;
             color: #0b0b14;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 30px rgba(255, 255, 255, 0.18);
         }
     </style>
 
@@ -353,9 +346,6 @@
 
     <!-- Scroll Progress -->
     <div id="scrollProgress"></div>
-
-    <!-- Custom Canvas Firework Cursor -->
-    <canvas id="fireCanvas"></canvas>
 
     @include('layouts.header')
 
@@ -511,192 +501,7 @@
 
         document.getElementById('goTopBtn').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        /* Advanced Canvas Firework Cursor Logic */
-        const canvas = document.getElementById('fireCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        let width, height;
-        let particles = [];
-        
-        // Track mouse/touch position
-        const mouse = {
-            x: 0,
-            y: 0,
-            isActive: false
-        };
-
-        // Firework colors (Kept per request)
-        const colors = ['#FFD700', '#FFA500', '#FF4500', '#FFFFFF', '#00FFFF', '#32CD32', '#FF1493'];
-
-        // Mobile Check
-        const isMobileDevice = () => {
-            return window.innerWidth < 992 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-        };
-
-        // Handle window resizing
-        function resize() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor(x, y, isExplosion = false) {
-                this.x = x;
-                this.y = y;
-                this.prevX = x;
-                this.prevY = y;
-                
-                this.life = 1;
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-                this.size = Math.random() * 3 + 1.5;
-                
-                if (isExplosion) {
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * 12 + 2;
-                    this.vx = Math.cos(angle) * speed;
-                    this.vy = Math.sin(angle) * speed;
-                    this.gravity = 0.15;
-                    this.decay = Math.random() * 0.02 + 0.015;
-                } else {
-                    this.vx = (Math.random() - 0.5) * 6; 
-                    this.vy = (Math.random() * -14) - 2; 
-                    this.gravity = 0.4; 
-                    this.decay = Math.random() * 0.02 + 0.01;
-                }
-            }
-
-            update() {
-                this.prevX = this.x;
-                this.prevY = this.y;
-                
-                this.vy += this.gravity;
-                this.x += this.vx;
-                this.y += this.vy;
-                this.life -= this.decay;
-            }
-
-            draw(ctx) {
-                ctx.beginPath();
-                ctx.moveTo(this.prevX, this.prevY);
-                ctx.lineTo(this.x, this.y);
-                ctx.strokeStyle = this.color;
-                ctx.globalAlpha = Math.max(0, this.life);
-                ctx.lineWidth = this.size;
-                ctx.lineCap = 'round';
-                ctx.stroke();
-            }
-        }
-
-        function drawFlowerPot(x, y) {
-            ctx.save();
-            ctx.translate(x, y);
-
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = '#00BFFF'; // Premium Blue Glow
-
-            ctx.beginPath();
-            ctx.moveTo(0, 0);          
-            ctx.lineTo(16, 45);        
-            ctx.lineTo(-16, 45);       
-            ctx.closePath();
-
-            let grad = ctx.createLinearGradient(-16, 0, 16, 0);
-            grad.addColorStop(0, '#00008B');   // Dark Blue
-            grad.addColorStop(0.5, '#00BFFF'); // Deep Sky Blue
-            grad.addColorStop(1, '#00008B');   // Dark Blue
-            ctx.fillStyle = grad;
-            ctx.fill();
-
-            ctx.shadowBlur = 0; 
-            ctx.beginPath();
-            ctx.moveTo(-7, 20);
-            ctx.lineTo(7, 20);
-            ctx.lineTo(10, 28);
-            ctx.lineTo(-10, 28);
-            ctx.closePath();
-            ctx.fillStyle = '#FFFF00'; // Vibrant Yellow Detail
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.arc(0, 0, 3, 0, Math.PI * 2);
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fill();
-
-            ctx.restore();
-        }
-
-        function drawPotShadow(x, y) {
-            ctx.save();
-            ctx.translate(x, y);
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(18, 50);
-            ctx.lineTo(-18, 50);
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
-            ctx.filter = 'blur(5px)';
-            ctx.fill();
-            ctx.restore();
-        }
-
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            mouse.isActive = true;
-        });
-
-        window.addEventListener('mouseout', () => mouse.isActive = false);
-        window.addEventListener('mouseenter', () => mouse.isActive = true);
-
-        window.addEventListener('touchmove', (e) => {
-            mouse.x = e.touches[0].clientX;
-            mouse.y = e.touches[0].clientY;
-            mouse.isActive = true;
-        }, { passive: true });
-
-        function triggerExplosion(x, y) {
-            for (let i = 0; i < 50; i++) {
-                particles.push(new Particle(x, y, true));
-            }
-        }
-
-        window.addEventListener('mousedown', (e) => triggerExplosion(e.clientX, e.clientY));
-        window.addEventListener('touchstart', (e) => triggerExplosion(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.globalCompositeOperation = 'lighter';
-
-            if (mouse.isActive && !isMobileDevice()) {
-                for(let i = 0; i < 3; i++) {
-                    particles.push(new Particle(mouse.x, mouse.y, false));
-                }
-            }
-
-            for (let i = particles.length - 1; i >= 0; i--) {
-                particles[i].update();
-                particles[i].draw(ctx);
-                
-                if (particles[i].life <= 0) {
-                    particles.splice(i, 1);
-                }
-            }
-
-            ctx.globalCompositeOperation = 'source-over';
-            ctx.globalAlpha = 1.0;
-
-            if (mouse.isActive && !document.getElementById('preloader') && !isMobileDevice()) {
-                drawPotShadow(mouse.x, mouse.y); 
-                drawFlowerPot(mouse.x, mouse.y);
-            }
-
-            requestAnimationFrame(animate);
-        }
-
-        animate();
+        /* Custom cursor and canvas particles have been removed for a simplified, professional experience. */
 
         /* Alert Logic */
         @if(session('success'))

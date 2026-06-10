@@ -686,45 +686,7 @@
 @push('scripts')
 <script>
 (function () {
-    // --- CARD HOVER GLOW ---
-    window.addEventListener('mousemove', e => {
-        document.querySelectorAll('.finance-card').forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            card.style.setProperty('--mx', `${x}%`);
-            card.style.setProperty('--my', `${y}%`);
-        });
-    });
-
-    // --- GSAP REVEALS ---
-    if (typeof gsap !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Hero reveal
-        gsap.from('.hero-content-wrap > *', {
-            y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: 'power3.out', delay: 0.2
-        });
-
-        // Cards reveal - more robust
-        gsap.from('.finance-card', {
-            scrollTrigger: {
-                trigger: '.payment-interface',
-                start: 'top 95%',
-                toggleActions: 'play none none none'
-            },
-            y: 60,
-            opacity: 0,
-            duration: 1.2,
-            stagger: 0.15,
-            ease: 'power3.out',
-            onComplete: () => {
-                gsap.set('.finance-card', { clearProps: 'all' });
-            }
-        });
-    }
-
-    // --- COPY FUNCTION ---
+    // --- SIMPLE COPY & LIGHTBOX ---
     document.querySelectorAll('.copy-trigger').forEach(btn => {
         btn.addEventListener('click', async () => {
             const text = btn.dataset.copy;
@@ -739,11 +701,12 @@
                     icon.className = originalClass;
                     btn.classList.remove('copied');
                 }, 2000);
-            } catch (err) { console.error('Copy failed', err); }
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
         });
     });
 
-    // --- LIGHTBOX ---
     const modal = document.getElementById('qrLightbox');
     const modalImg = document.getElementById('enlargedQR');
     const caption = document.getElementById('qrCaption');

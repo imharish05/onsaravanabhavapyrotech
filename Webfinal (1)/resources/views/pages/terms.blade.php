@@ -186,44 +186,6 @@
             padding-bottom: 40px;
         }
 
-        .spark-container {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--gold-deep);
-            border-radius: 50%;
-            animation: floatUp 6s linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 0.6;
-            }
-
-            80% {
-                opacity: 0.6;
-            }
-
-            100% {
-                transform: translateY(-300px);
-                opacity: 0;
-            }
-        }
-
         @media (max-width: 768px) {
             .terms-card {
                 padding: 40px;
@@ -355,8 +317,6 @@
         <section class="terms-section">
             <div class="terms-container">
                 <div class="terms-card wow fadeInUp">
-                    <div class="spark-container" id="legalSparks"></div>
-
                     <div class="terms-content-body">
                         @if($terms && $terms->content)
                             {!! $terms->content !!}
@@ -411,18 +371,6 @@
                     if (target) target.style.transform = `scale(1.1) translateY(${window.scrollY * 0.3}px)`;
                 });
 
-                // 2. Legal Sparks
-                const container = document.getElementById('legalSparks');
-                function createSparkle() {
-                    const el = document.createElement('div');
-                    el.className = 'sparkle';
-                    el.style.left = Math.random() * 100 + '%';
-                    el.style.top = (60 + Math.random() * 40) + '%';
-                    el.style.animationDelay = Math.random() * 4 + 's';
-                    container.appendChild(el);
-                    setTimeout(() => el.remove(), 6000);
-                }
-                setInterval(createSparkle, 600);
             });
         </script>
     @endpush

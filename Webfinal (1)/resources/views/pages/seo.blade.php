@@ -300,21 +300,6 @@
 
 .tag-pill:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-/* Particles */
-#seoEmbers { position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
-.ember {
-    position: absolute;
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity: 0; }
-    20% { opacity: 0.8; }
-    100% { transform: translateY(-100vh) scale(0); opacity: 0; }
-}
-
 @media (max-width: 1200px) {
     .seo-container { grid-template-columns: 1fr; }
     .seo-sidebar { position: relative; top: 0; margin-top: 40px; }
@@ -488,7 +473,6 @@
             <div class="seo-hero-bg parallax-target" style="background: linear-gradient(45deg, #1a0500, #2e0800);"></div>
         @endif
         <div class="seo-hero-overlay"></div>
-        <div id="seoEmbers"></div>
 
         <div class="seo-hero-content">
             <div class="seo-breadcrumb wow fadeInUp">
@@ -605,31 +589,6 @@
             }
         });
 
-        // 2. Embers
-        const container = document.getElementById('seoEmbers');
-        const colors = ['#ffd700', '#ff6a00', '#ff2200', '#fffde0'];
-        
-        function spark() {
-            const ember = document.createElement('div');
-            ember.className = 'ember';
-            const size = Math.random() * 4 + 2;
-            const x = Math.random() * 100;
-            const dur = Math.random() * 5 + 5;
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            
-            ember.style.cssText = `
-                left: ${x}%;
-                bottom: -20px;
-                width: ${size}px;
-                height: ${size}px;
-                background: ${color};
-                box-shadow: 0 0 10px ${color};
-                animation-duration: ${dur}s;
-            `;
-            container.appendChild(ember);
-            setTimeout(() => ember.remove(), dur * 1000);
-        }
-        setInterval(spark, 800);
     });
 </script>
 @endpush

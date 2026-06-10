@@ -2,13 +2,8 @@
 <div class="top-announcement">
     <div class="a-inner">
         <div class="ticker-container">
-            <div class="ticker-wrapper">
-                <div class="ticker-content">
-                    {!! $global_settings->top_offer_text ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
-                </div>
-                <div class="ticker-content">
-                    {!! $global_settings->top_offer_text ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
-                </div>
+            <div class="ticker-content">
+                {!! $global_settings->top_offer_text ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
             </div>
         </div>
         <div class="a-right">
@@ -71,13 +66,8 @@
 <div class="top-announcement bottom-ticker">
     <div class="a-inner">
         <div class="ticker-container">
-            <div class="ticker-wrapper">
-                <div class="ticker-content">
-                    {!! $global_settings->top_offer_text_2 ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
-                </div>
-                <div class="ticker-content">
-                    {!! $global_settings->top_offer_text_2 ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
-                </div>
+            <div class="ticker-content">
+                {!! $global_settings->top_offer_text_2 ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
             </div>
         </div>
         <div class="a-right">
@@ -146,25 +136,14 @@
     }
 
     .ticker-wrapper {
-        display: flex;
-        width: max-content;
-        animation: ticker-move 30s linear infinite;
+        display: block;
     }
 
     .ticker-content {
         display: flex;
-        gap: 50px;
-        padding-right: 50px;
-    }
-
-    @keyframes ticker-move {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
+        gap: 35px;
+        flex-wrap: wrap;
+        padding-right: 0;
     }
 
     .ticker-item {

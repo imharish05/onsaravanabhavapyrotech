@@ -18,26 +18,24 @@
             --gold: #D4860A;
             --gold-deep: #B86E00;
             --gold-light: #F0A832;
-            --gold-pale: rgba(212, 134, 10, 0.1);
+            --gold-pale: rgba(212, 134, 10, 0.08);
             --saffron: #E87B2D;
 
-            /* Neutrals - DARK TRANSFORMATION */
-            --ivory: #080810;
-            /* Deep Midnight */
-            --cream: #0c0c18;
-            /* Dark Indigo */
-            --sand: #121224;
-            --stone: #1a1a30;
-            --charcoal: #1a1a24;
-            --ink: #FFFFFF;
-            --muted: #A0A0A0;
+            /* Neutrals - CLEAN WHITE THEME */
+            --ivory: #FFFFFF;
+            --cream: #F9F9F9;
+            --sand: #F3F3F3;
+            --stone: #E8E8E8;
+            --charcoal: #F5F5F5;
+            --ink: #1A1A1A;
+            --muted: #555555;
             --subtle: #888888;
 
-            /* Glows / Shadows */
-            --shadow-sm: 0 2px 12px rgba(0, 0, 0, .5);
-            --shadow-md: 0 8px 32px rgba(0, 0, 0, .7);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, .9);
-            --glow-gold: rgba(212, 134, 10, .4);
+            /* Shadows */
+            --shadow-sm: 0 2px 12px rgba(0, 0, 0, .08);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, .12);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, .16);
+            --glow-gold: rgba(212, 134, 10, .3);
 
             /* Fonts */
             --font-display: 'Outfit', sans-serif;
@@ -49,157 +47,8 @@
             --beam-3: #F0A832;
         }
 
-        /* ========================
-       FIREWORKS BACKGROUND
-       ======================== */
-        #fireworks-canvas {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            /* Over everything */
-            width: 100%;
-            height: 100%;
-        }
-
-        #petal-canvas {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            /* Behind content, above stars */
-        }
-
-
-        .smoke-overlay {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 174, 0, 0.025) 0%, transparent 65%);
-            animation: smokeDrift 22s linear infinite alternate;
-        }
-
-        @keyframes smokeDrift {
-            0% {
-                transform: scale(1) translate(0, 0);
-            }
-
-            100% {
-                transform: scale(1.08) translate(-20px, 10px);
-            }
-        }
-
-        .ground-layer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .chakkar {
-            position: absolute;
-            bottom: 12px;
-            width: 36px;
-            height: 36px;
-        }
-
-        .chakkar-inner {
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--gold);
-            border-top-color: var(--saffron);
-            border-radius: 50%;
-            animation: spin 0.3s linear infinite;
-            box-shadow: 0 0 12px rgba(255, 174, 0, 0.3);
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .flowerpot-wrap {
-            position: absolute;
-            bottom: 0;
-        }
-
-        .flowerpot-body {
-            width: 24px;
-            height: 32px;
-            background: linear-gradient(to bottom, #8B4513, #5C2D0A);
-            clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
-            box-shadow: 0 0 8px rgba(255, 174, 0, 0.3);
-        }
-
-        .roman-wrap {
-            position: absolute;
-            bottom: 0;
-        }
-
-        .roman-tube {
-            width: 12px;
-            height: 50px;
-            background: linear-gradient(to right, #444, #666, #444);
-            border-radius: 2px;
-        }
-
-        .smoke-puff {
-            position: fixed;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(200, 180, 140, 0.25) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 2;
-            animation: puffUp var(--sd, 2s) ease-out forwards;
-        }
-
-        @keyframes puffUp {
-            0% {
-                opacity: 0.7;
-                transform: scale(0.5) translateY(0);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1.8) translateY(var(--sy, -80px));
-            }
-        }
-
-        .atom-flash {
-            position: fixed;
-            left: var(--fx, 50%);
-            top: var(--fy, 50%);
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 220, 100, 0.5) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: flashOut 0.7s ease-out forwards;
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        @keyframes flashOut {
-            to {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(2);
-            }
-        }
-
         .main-page-wrap {
             position: relative;
-            z-index: 2;
-        }
-
-        .mouse-spark {
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            border-radius: 50%;
         }
 
         /* ========================
@@ -262,15 +111,14 @@
         }
 
         body {
-            background: var(--ivory);
-            color: var(--ink);
+            background: #FFFFFF;
+            color: #1A1A1A;
             font-family: var(--font-accent);
             overflow-x: hidden;
         }
 
         .main-page-wrap {
-            background: var(--ivory);
-            position: relative;
+            background: #FFFFFF;
         }
 
         /* CUSTOM CURSOR REMOVED */
@@ -3486,13 +3334,7 @@
     
     </style>
 
-    <!-- FIREWORKS & ATMOSPHERE -->
-    <canvas id="petal-canvas"></canvas>
-    <canvas id="fireworks-canvas"></canvas>
-    <div class="smoke-overlay"></div>
-    <div class="ground-layer" id="groundLayer"></div>
-
-    <!-- CURSOR REMOVED -->
+    <!-- Clean layout - no animations -->
 
     <!-- ========================
          ANNOUNCE BAR
@@ -4166,607 +4008,78 @@ alt="Order Process">
          ======================== -->
 @push('scripts')
 <script>
-    (function() {
-        /* ── 1. SHARED ANIMATION CONTEXT ── */
-        const petalCanvas = document.getElementById('petal-canvas');
-        const fwCanvas = document.getElementById('fireworks-canvas');
-        let pctx = null,
-            pW, pH;
-        const petals = [];
-        const petalColors = ['#FFD700', '#FFA500', '#FF8C00', '#FF4500'];
+(function () {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
 
-        // Cursor State (Using Global Cursor)
-        let mx = 0,
-            my = 0;
+    function goToSlide(n) {
+        if (!slides.length) return;
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+    }
 
-        if (petalCanvas) {
-            pctx = petalCanvas.getContext('2d');
-            const pResize = () => {
-                pW = petalCanvas.width = window.innerWidth;
-                pH = petalCanvas.height = window.innerHeight;
-            };
-            pResize();
-            window.addEventListener('resize', pResize);
-        }
+    if (slides.length > 1) {
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+        setInterval(() => goToSlide(current + 1), 5000);
+    }
 
-        class Petal {
-            constructor() {
-                this.reset();
-            }
-            reset() {
-                this.x = Math.random() * pW;
-                this.y = -20;
-                this.size = Math.random() * 5 + 2;
-                this.speed = Math.random() * 1.5 + 0.5;
-                this.swing = Math.random() * 2;
-                this.swingSpeed = Math.random() * 0.05 + 0.02;
-                this.angle = Math.random() * Math.PI * 2;
-                this.color = petalColors[Math.floor(Math.random() * petalColors.length)];
-                this.opacity = Math.random() * 0.5 + 0.3;
-            }
-            update() {
-                this.y += this.speed;
-                this.x += Math.sin(this.angle) * this.swing;
-                this.angle += this.swingSpeed;
-                if (this.y > pH) this.reset();
-            }
-            draw() {
-                pctx.beginPath();
-                pctx.ellipse(this.x, this.y, this.size, this.size / 1.5, this.angle, 0, Math.PI * 2);
-                pctx.fillStyle = this.color;
-                pctx.globalAlpha = this.opacity;
-                pctx.fill();
-            }
-        }
-
-        if (petalCanvas) {
-            for (let i = 0; i < 60; i++) petals.push(new Petal());
-        }
-
-
-        /* ── 2. CUSTOM FIREWORKS ENGINE ── */
-        if (fwCanvas) {
-            const ctx = fwCanvas.getContext('2d');
-            let W, H;
-
-            function resize() {
-                W = fwCanvas.width = window.innerWidth;
-                H = fwCanvas.height = window.innerHeight;
-            }
-            resize();
-            window.addEventListener('resize', resize);
-
-            const PI2 = Math.PI * 2;
-            const rand = (a, b) => Math.random() * (b - a) + a;
-            const randI = (a, b) => Math.floor(rand(a, b + 1));
-            const particles = [];
-            const stars = [];
-            const shootingStars = [];
-            const groundEl = document.getElementById('groundLayer');
-
-            // Create Stars
-            for (let i = 0; i < 120; i++) {
-                stars.push({
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    size: Math.random() * 1.5,
-                    opacity: Math.random(),
-                    twinkleSpeed: Math.random() * 0.015 + 0.005
-                });
-            }
-
-            function spawnSparklerParticle(x, y) {
-                const angle = rand(0, PI2),
-                    spd = rand(1, 4);
-                particles.push({
-                    kind: 'sparkle',
-                    x,
-                    y,
-                    vx: Math.cos(angle) * spd,
-                    vy: Math.sin(angle) * spd,
-                    hue: rand(30, 60),
-                    alpha: 1,
-                    life: rand(8, 18),
-                    maxLife: 18,
-                    size: rand(1, 2.5),
-                    gravity: 0.08,
-                    friction: 0.93
-                });
-            }
-
-            function spawnFlowerPotParticle(x, y) {
-                const angle = rand(-Math.PI, 0) - Math.PI / 2 + rand(-0.6, 0.6),
-                    spd = rand(2, 8);
-                particles.push({
-                    kind: 'flower',
-                    x,
-                    y,
-                    vx: Math.cos(angle) * spd,
-                    vy: Math.sin(angle) * spd,
-                    hue: rand(30, 60),
-                    alpha: 1,
-                    life: rand(25, 55),
-                    maxLife: 55,
-                    size: rand(1.5, 3),
-                    gravity: 0.12,
-                    friction: 0.96
-                });
-            }
-
-            function spawnRomanBall(x, y) {
-                const hue = randI(0, 360);
-                particles.push({
-                    kind: 'romanball',
-                    x,
-                    y,
-                    vx: rand(-0.8, 0.8),
-                    vy: rand(-9, -5),
-                    hue,
-                    alpha: 1,
-                    life: rand(45, 70),
-                    maxLife: 70,
-                    size: rand(3, 5),
-                    gravity: 0.15,
-                    friction: 0.99
-                });
-            }
-
-            function addSmoke(x, y) {
-                const puff = document.createElement('div');
-                puff.className = 'smoke-puff';
-                const sz = rand(30, 80);
-                puff.style.cssText = `left:${x - sz / 2}px; top:${y - sz / 2}px; width:${sz}px; height:${sz}px; --sy:-${rand(60, 120)}px; --sd:${rand(1.5, 3)}s;`;
-                document.body.appendChild(puff);
-                setTimeout(() => puff.remove(), 3100);
-            }
-
-            window.addChakkar = function() {
-                if (!groundEl) return;
-                const el = document.createElement('div');
-                el.className = 'chakkar';
-                el.style.left = rand(5, 90) + '%';
-                el.innerHTML = '<div class="chakkar-inner"></div>';
-                groundEl.appendChild(el);
-                const duration = rand(4000, 8000);
-                const iv = setInterval(() => {
-                    const r = el.getBoundingClientRect();
-                    for (let i = 0; i < 4; i++) {
-                        const a = rand(0, PI2),
-                            s = rand(1, 4);
-                        particles.push({
-                            kind: 'sparkle',
-                            x: r.left + 18,
-                            y: r.top + 18,
-                            vx: Math.cos(a) * s,
-                            vy: Math.sin(a) * s,
-                            hue: rand(0, 60),
-                            alpha: 1,
-                            life: rand(10, 22),
-                            maxLife: 22,
-                            size: rand(1, 2.5),
-                            gravity: 0.07,
-                            friction: 0.94
-                        });
-                    }
-                }, 40);
-                setTimeout(() => {
-                    clearInterval(iv);
-                    el.style.transition = 'opacity .5s';
-                    el.style.opacity = '0';
-                    setTimeout(() => el.remove(), 600);
-                }, duration);
-            };
-            window.addFlowerPot = function() {
-                if (!groundEl) return;
-                const wrap = document.createElement('div');
-                wrap.className = 'flowerpot-wrap';
-                wrap.style.left = rand(5, 90) + '%';
-                wrap.innerHTML = '<div class="flowerpot-body"></div>';
-                groundEl.appendChild(wrap);
-                const duration = rand(4000, 7000);
-                const iv = setInterval(() => {
-                    const r = wrap.getBoundingClientRect();
-                    for (let i = 0; i < 5; i++) spawnFlowerPotParticle(r.left + 12, r.top);
-                }, 45);
-                setTimeout(() => {
-                    clearInterval(iv);
-                    wrap.style.transition = 'opacity .5s';
-                    wrap.style.opacity = '0';
-                    setTimeout(() => wrap.remove(), 600);
-                }, duration);
-            };
-            window.addRomanCandle = function() {
-                if (!groundEl) return;
-                const wrap = document.createElement('div');
-                wrap.className = 'roman-wrap';
-                wrap.style.left = rand(5, 90) + '%';
-                wrap.innerHTML = '<div class="roman-tube"></div>';
-                groundEl.appendChild(wrap);
-                let shotCount = 0;
-                const maxShots = randI(5, 12);
-
-                function shootBall() {
-                    if (shotCount >= maxShots) {
-                        wrap.style.transition = 'opacity .5s';
-                        wrap.style.opacity = '0';
-                        setTimeout(() => wrap.remove(), 600);
-                        return;
-                    }
-                    const r = wrap.getBoundingClientRect();
-                    spawnRomanBall(r.left + 5, r.top - 5);
-                    shotCount++;
-                    setTimeout(shootBall, rand(400, 900));
+    const revealEls = document.querySelectorAll('.product-card, .why-cell, .step-item, .testi-card, .cat-card, .process-step, .safety-tip, .fact-item, .faq-item, .stat-cell');
+    if ('IntersectionObserver' in window && revealEls.length) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    obs.unobserve(entry.target);
                 }
-                setTimeout(shootBall, rand(100, 500));
-            };
-
-            function launchAerial(sx, sy, tx, ty) {
-                const hue = randI(0, 360),
-                    style = randI(0, 4);
-                particles.push({
-                    kind: 'rocket',
-                    x: sx,
-                    y: sy,
-                    tx,
-                    ty,
-                    vx: (tx - sx) / 55,
-                    vy: (ty - sy) / 55,
-                    life: 55,
-                    maxLife: 55,
-                    hue,
-                    style,
-                    trail: [],
-                    size: rand(2.5, 3.5),
-                    done: false
-                });
-            }
-
-            function explodeAerial(x, y, hue, style) {
-                particles.push({
-                    kind: 'flash',
-                    x,
-                    y,
-                    life: 12,
-                    maxLife: 12,
-                    hue
-                });
-                const count = randI(70, 130);
-
-                // GSAP Enhanced Burst
-                gsap.to({}, {
-                    duration: 0.1,
-                    onComplete: () => {
-                        const shell = (ax, ay, a, s, h, l, comet = false) => {
-                            particles.push({
-                                kind: 'shell',
-                                x: ax,
-                                y: ay,
-                                vx: Math.cos(a) * s,
-                                vy: Math.sin(a) * s,
-                                hue: h,
-                                life: l,
-                                maxLife: l,
-                                alpha: 1,
-                                size: rand(1.2, 2.8),
-                                gravity: 0.055,
-                                friction: 0.975,
-                                comet,
-                                trail: [],
-                                trailLen: comet ? 10 : 4
-                            });
-                        };
-                        if (style === 1)
-                            for (let i = 0; i < count; i++) shell(x, y, (PI2 / count) * i, rand(3, 5.5), hue, rand(40, 70));
-                        else if (style === 2)
-                            for (let i = 0; i < count; i++) shell(x, y, (PI2 / count) * i + rand(-.05, .05), rand(2, 7), hue + rand(-20, 20), rand(50, 90), true);
-                        else if (style === 3)
-                            for (let i = 0; i < count * 1.5; i++) shell(x, y, rand(0, PI2), rand(.5, 4.5), hue + rand(-40, 40), rand(30, 55));
-                        else if (style === 4)
-                            for (let i = 0; i < count; i++) {
-                                const a = (PI2 / count) * i,
-                                    s = rand(1.5, 4.5);
-                                particles.push({
-                                    kind: 'willow',
-                                    x,
-                                    y,
-                                    vx: Math.cos(a) * s,
-                                    vy: Math.sin(a) * s,
-                                    hue: hue + rand(-15, 15),
-                                    alpha: 1,
-                                    life: rand(60, 100),
-                                    maxLife: 100,
-                                    size: rand(1.5, 2.5),
-                                    gravity: 0.09,
-                                    friction: 0.985,
-                                    trail: [],
-                                    trailLen: 12
-                                });
-                            }
-                        else
-                            for (let i = 0; i < count; i++) shell(x, y, (PI2 / count) * i + rand(-.12, .12), rand(1.5, 6.5), hue, rand(35, 65));
-                    }
-                });
-                addSmoke(x, y);
-            }
-
-            window.triggerAtomBomb = function(x, y) {
-                for (let i = 0; i < 200; i++) {
-                    const a = (PI2 / 200) * i,
-                        s = rand(5, 14);
-                    particles.push({
-                        kind: 'atom',
-                        x,
-                        y,
-                        vx: Math.cos(a) * s,
-                        vy: Math.sin(a) * s,
-                        hue: rand(0, 60),
-                        alpha: 1,
-                        life: rand(30, 60),
-                        maxLife: 60,
-                        size: rand(2, 5),
-                        gravity: 0.04,
-                        friction: 0.93
-                    });
-                }
-                const flash = document.createElement('div');
-                flash.className = 'atom-flash';
-                flash.style.setProperty('--fx', (x / W * 100) + '%');
-                flash.style.setProperty('--fy', (y / H * 100) + '%');
-                document.body.appendChild(flash);
-                setTimeout(() => flash.remove(), 700);
-            };
-
-            /* ── MAIN ANIMATION LOOP ── */
-            function render() {
-                requestAnimationFrame(render);
-                if (document.hidden) return; // Pause if tab not active
-
-                // Limit global particle count for stability
-                if (particles.length > 1200) particles.splice(0, 200);
-
-                // 1. Petals (on petalCanvas)
-                if (petalCanvas && pctx) {
-                    pctx.clearRect(0, 0, pW, pH);
-                    petals.forEach(p => {
-                        p.update();
-                        p.draw();
-                    });
-                }
-
-                // Cursor Ring Logic Removed (Using Global)
-
-                // 3. Fireworks & Stars
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.fillStyle = 'rgba(0,0,0,0.42)';
-                ctx.fillRect(0, 0, W, H);
-                ctx.globalCompositeOperation = 'lighter';
-
-                // Optimized Star Rendering (Batched)
-                ctx.fillStyle = "#fff";
-                stars.forEach(s => {
-                    s.opacity += s.twinkleSpeed;
-                    if (s.opacity > 1 || s.opacity < 0.2) s.twinkleSpeed *= -1;
-                    ctx.globalAlpha = s.opacity;
-                    ctx.beginPath();
-                    ctx.arc(s.x, s.y, s.size, 0, PI2);
-                    ctx.fill();
-                });
-                ctx.globalAlpha = 1;
-
-                // Shooting Stars
-                if (Math.random() < 0.008) {
-                    shootingStars.push({
-                        x: Math.random() * W,
-                        y: Math.random() * H * 0.4,
-                        len: rand(60, 100),
-                        speed: rand(12, 18),
-                        alpha: 1
-                    });
-                }
-                shootingStars.forEach((ss, i) => {
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${ss.alpha})`;
-                    ctx.lineWidth = 1.2;
-                    ctx.beginPath();
-                    ctx.moveTo(ss.x, ss.y);
-                    ctx.lineTo(ss.x + ss.len, ss.y + ss.len * 0.3);
-                    ctx.stroke();
-                    ss.x += ss.speed;
-                    ss.y += ss.speed * 0.3;
-                    ss.alpha -= 0.03;
-                    if (ss.alpha <= 0) shootingStars.splice(i, 1);
-                });
-
-                const dead = [];
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    p.life--;
-                    if (p.life <= 0) {
-                        if (p.kind === 'rocket') explodeAerial(p.x, p.y, p.hue, p.style);
-                        if (p.kind === 'romanball') {
-                            for (let k = 0; k < 12; k++) {
-                                const a = rand(0, PI2),
-                                    s = rand(1, 3);
-                                particles.push({
-                                    kind: 'sparkle',
-                                    x: p.x,
-                                    y: p.y,
-                                    vx: Math.cos(a) * s,
-                                    vy: Math.sin(a) * s,
-                                    hue: p.hue,
-                                    alpha: 1,
-                                    life: rand(12, 22),
-                                    maxLife: 22,
-                                    size: rand(0.8, 1.8),
-                                    gravity: 0.06,
-                                    friction: 0.95
-                                });
-                            }
-                        }
-                        dead.push(i);
-                        continue;
-                    }
-                    switch (p.kind) {
-                        case 'rocket':
-                            p.trail.unshift([p.x, p.y]);
-                            if (p.trail.length > 8) p.trail.pop();
-                            p.x += p.vx;
-                            p.y += p.vy;
-                            for (let t = 0; t < p.trail.length; t++) {
-                                ctx.beginPath();
-                                ctx.arc(p.trail[t][0], p.trail[t][1], p.size * (1 - t / p.trail.length), 0, PI2);
-                                ctx.fillStyle = `hsla(${p.hue},100%,70%,${0.5 * (1 - t / p.trail.length)})`;
-                                ctx.fill();
-                            }
-                            break;
-                        case 'flash':
-                            const fa = p.life / p.maxLife,
-                                fr = (1 - fa) * 120;
-                            const fg = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, fr);
-                            fg.addColorStop(0, `hsla(${p.hue},100%,95%,${fa})`);
-                            fg.addColorStop(1, 'transparent');
-                            ctx.fillStyle = fg;
-                            ctx.beginPath();
-                            ctx.arc(p.x, p.y, fr, 0, PI2);
-                            ctx.fill();
-                            break;
-                        case 'shell':
-                        case 'willow':
-                        case 'flower':
-                        case 'romanball':
-                        case 'atom':
-                            p.vy += p.gravity;
-                            p.vx *= p.friction;
-                            p.vy *= p.friction;
-                            p.x += p.vx;
-                            p.y += p.vy;
-                            p.alpha = p.life / p.maxLife;
-                            break;
-                        case 'sparkle':
-                            p.vy += p.gravity;
-                            p.vx *= p.friction;
-                            p.vy *= p.friction;
-                            p.x += p.vx;
-                            p.y += p.vy;
-                            p.alpha = p.life / p.maxLife;
-                            ctx.save();
-                            ctx.globalAlpha = p.alpha;
-                            ctx.strokeStyle = `hsl(${p.hue},100%,72%)`;
-                            ctx.lineWidth = p.size * .7;
-                            ctx.beginPath();
-                            ctx.moveTo(p.x - 3, p.y);
-                            ctx.lineTo(p.x + 3, p.y);
-                            ctx.stroke();
-                            ctx.restore();
-                            break;
-                    }
-                    if (['shell', 'willow', 'rocket', 'flower', 'romanball', 'atom'].includes(p.kind)) {
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.size, 0, PI2);
-                        ctx.fillStyle = `hsla(${p.hue},100%,70%,${p.alpha || 1})`;
-                        ctx.fill();
-                    }
-                }
-                for (let i = dead.length - 1; i >= 0; i--) particles.splice(dead[i], 1);
-            }
-            render();
-
-            setInterval(() => launchAerial(rand(W * .25, W * .75), H, rand(W * .05, W * .95), rand(H * .06, H * .45)), 2200);
-            setInterval(() => {
-                if (Math.random() > 0.45) addChakkar();
-                if (Math.random() > 0.5) addFlowerPot();
-                if (Math.random() > 0.65) addRomanCandle();
-            }, 4000);
-
-            window.addEventListener('click', e => {
-                if (e.target.closest('a,button,.product-card,.cat-card,.faq-question')) return;
-                const t = randI(0, 2);
-                if (t === 0) launchAerial(W / 2, H, e.clientX, e.clientY);
-                else triggerAtomBomb(e.clientX, e.clientY);
             });
-        }
-
-        /* ── 3. CURSOR (Global Handling) ── */
-        document.addEventListener('mousemove', e => {
-            mx = e.clientX;
-            my = e.clientY;
-            if (Math.random() > 0.82 && typeof spawnSparklerParticle === 'function') spawnSparklerParticle(mx, my);
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(18px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
         });
+    }
 
-        /* ── 4. SLIDER ── */
-        let current = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        window.goToSlide = function(n) {
-            if (!slides.length) return;
-            slides[current].classList.remove('active');
-            if (dots[current]) dots[current].classList.remove('active');
-            current = (n + slides.length) % slides.length;
-            slides[current].classList.add('active');
-            if (dots[current]) dots[current].classList.add('active');
-        };
-        if (slides.length > 1) setInterval(() => window.goToSlide(current + 1), 5000);
+    function updateCountdown() {
+        const target = new Date("{{ $settings->offer_end_date ? date('Y-m-d H:i:s', strtotime($settings->offer_end_date)) : '2026-10-30 00:00:00' }}");
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) return;
+        const d = Math.floor(diff / 86400000),
+            h = Math.floor((diff % 86400000) / 3600000),
+            m = Math.floor((diff % 3600000) / 60000),
+            s = Math.floor((diff % 60000) / 1000);
+        const pad = n => String(n).padStart(2, '0');
+        const dEl = document.getElementById('cnt-days'),
+            hEl = document.getElementById('cnt-hrs'),
+            mEl = document.getElementById('cnt-min'),
+            sEl = document.getElementById('cnt-sec');
+        if (dEl) dEl.textContent = pad(d);
+        if (hEl) hEl.textContent = pad(h);
+        if (mEl) mEl.textContent = pad(m);
+        if (sEl) sEl.textContent = pad(s);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-        /* ── 5. COUNTDOWN ── */
-        function updateCountdown() {
-            const target = new Date("{{ $settings->offer_end_date ? date('Y-m-d H:i:s', strtotime($settings->offer_end_date)) : '2026-10-30 00:00:00' }}");
-            const now = new Date();
-            const diff = target - now;
-            
-            if (diff <= 0) {
-                const strip = document.getElementById('offer-strip');
-                if (strip) strip.style.display = 'none';
-                return;
-            }
-
-            const d = Math.floor(diff / 86400000),
-                h = Math.floor((diff % 86400000) / 3600000),
-                m = Math.floor((diff % 3600000) / 60000),
-                s = Math.floor((diff % 60000) / 1000);
-            const pad = n => String(n).padStart(2, '0');
-            const dEl = document.getElementById('cnt-days'),
-                hEl = document.getElementById('cnt-hrs'),
-                mEl = document.getElementById('cnt-min'),
-                sEl = document.getElementById('cnt-sec');
-            if (dEl) dEl.textContent = pad(d);
-            if (hEl) hEl.textContent = pad(h);
-            if (mEl) mEl.textContent = pad(m);
-            if (sEl) sEl.textContent = pad(s);
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        /* ── 6. FAQ ── */
-        window.toggleFaq = function(btn) {
-            const item = btn.closest('.faq-item'),
-                isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-question, .faq-toggle').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const item = btn.closest('.faq-item');
+            if (!item) return;
             document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-            if (!isOpen) item.classList.add('open');
-        };
-
-
-        /* ── 8. REVEAL ON SCROLL (GSAP BATCHED) ── */
-        const revealEls = document.querySelectorAll('.product-card, .why-cell, .step-item, .testi-card, .cat-card, .process-step, .safety-tip, .fact-item, .faq-item, .stat-cell');
-        if (revealEls.length) {
-            gsap.set(revealEls, {
-                opacity: 0,
-                y: 30
-            });
-            ScrollTrigger.batch(revealEls, {
-                onEnter: batch => gsap.to(batch, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    stagger: 0.15,
-                    ease: "power2.out",
-                    overwrite: true
-                }),
-                start: "top 88%",
-                once: true
-            });
-        }
-    })();
+            item.classList.toggle('open');
+        });
+    });
+})();
 </script>
 @endpush
+
 
 </div>
 @endsection
