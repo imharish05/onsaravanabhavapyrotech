@@ -126,7 +126,7 @@
         height: 80px;
         width: auto;
         margin-bottom: 25px;
-        filter: brightness(0) invert(1);
+        /* filter: brightness(0) invert(1); */
     }
 
     .f-brand-tag {

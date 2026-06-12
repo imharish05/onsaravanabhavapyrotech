@@ -276,7 +276,7 @@
     }
 
     .hero-display-title span {
-        background: linear-gradient(90deg, #FFFFFF, var(--gold-light), #FFFFFF);
+        background: linear-gradient(90deg, #000, var(--gold-light), #FFFFFF);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -557,7 +557,7 @@
     }
 
     .narrative-body {
-        color: rgba(255, 255, 255, 0.7);
+        /* color: rgba(255, 255, 255, 0.7); */
         line-height: 1.8;
         font-size: 1.1rem;
         margin-bottom: 40px;
@@ -742,17 +742,17 @@
 
     .v-card:hover p {
         transform: translateZ(30px);
-        color: rgba(255, 255, 255, 1) !important;
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        color: rgba(0,0,0) !important;
+        /* text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
     }
 
     /* Card 1: Sapphire */
     .v-card:nth-child(1) {
-        background: linear-gradient(145deg, rgba(0, 78, 146, 0.15), rgba(0, 4, 40, 0.4)) !important;
+        /* background: linear-gradient(145deg, rgba(0, 78, 146), rgba(0, 4,40)) !important; */
     }
 
     .v-card:nth-child(1) h3 {
-        background: linear-gradient(135deg, #FFF, #00d2ff);
+        background: linear-gradient(135deg, #000, #00d2ff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -771,11 +771,12 @@
 
     /* Card 2: Amethyst */
     .v-card:nth-child(2) {
-        background: linear-gradient(145deg, rgba(78, 84, 200, 0.15), rgba(143, 148, 251, 0.1)) !important;
+        /* background: linear-gradient(145deg, rgba(78, 84, 200), rgba(143, 148, 251)) !important; */
+     
     }
 
     .v-card:nth-child(2) h3 {
-        background: linear-gradient(135deg, #FFF, #8E2DE2);
+        background: linear-gradient(135deg, #000, #8E2DE2);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -794,11 +795,11 @@
 
     /* Card 3: Amber Gold */
     .v-card:nth-child(3) {
-        background: linear-gradient(145deg, rgba(212, 175, 55, 0.15), rgba(212, 134, 10, 0.1)) !important;
+        /* background: linear-gradient(145deg, rgba(212, 175, 55), rgba(212, 134, 10)) !important; */
     }
 
     .v-card:nth-child(3) h3 {
-        background: linear-gradient(135deg, #FFF, var(--gold-accent));
+        background: linear-gradient(135deg, #000,rgba(212, 134, 10) );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -817,11 +818,11 @@
 
     /* Card 4: Jade Emerald */
     .v-card:nth-child(4) {
-        background: linear-gradient(145deg, rgba(19, 78, 94, 0.15), rgba(113, 178, 128, 0.1)) !important;
+        /* background: linear-gradient(145deg, rgba(19, 78, 94), rgba(113, 178, 128)) !important; */
     }
 
     .v-card:nth-child(4) h3 {
-        background: linear-gradient(135deg, #FFF, #38ef7d);
+        background: linear-gradient(135deg, #000, #38ef7d);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -896,7 +897,7 @@
     }
 
     .v-card p {
-        color: rgba(255, 255, 255, 0.7);
+        color: white;
         font-size: 1rem;
         line-height: 1.6;
         position: relative;
@@ -1332,8 +1333,6 @@
     .v-card,
     .n-badge,
     .stat-item,
-    .stats-container,
-    .cta-content,
     .hero-meta,
     .v-card:hover {
         background: rgba(255,255,255,0.95) !important;

@@ -42,11 +42,11 @@
             --gold-deep: #c92a0d;
             --gold-glimmer: linear-gradient(90deg, #ff5733, #e53a12, #ff5733);
 
-            --ink: #FFFFFF; /* White Background */
+            --ink: #080810; /* Dark Background */
             --text: #000000; /* Dark Text */
             --charcoal: #333333;
-            --cream: #FFFFFF; /* White */
-            --ivory: #FFFFFF; /* White */
+            --cream: #0f0f1a; /* Dark */
+            --ivory: #13131f; /* Dark */
             --saffron: #e53a12;
             --clay: #f5f5f5;
 

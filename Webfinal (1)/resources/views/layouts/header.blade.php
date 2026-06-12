@@ -63,7 +63,7 @@
         </div>
     </div>
 </header>
-<div class="top-announcement bottom-ticker">
+<!-- <div class="top-announcement bottom-ticker">
     <div class="a-inner">
         <div class="ticker-container">
             <div class="ticker-content">
@@ -75,7 +75,7 @@
                 {{ $global_settings->phone_number }}</a>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Google Translate (Hidden) -->
 <div id="google_translate_element" style="display:none"></div>
 

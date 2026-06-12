@@ -122,8 +122,7 @@
     .c-desc,
     .terms-hero p,
     .article-content-rich,
-    .seo-rich-content,
-    .terms-content-body {
+    .seo-rich-content {
         color: var(--muted-light) !important;
     }
 
@@ -146,7 +145,6 @@
     .s-cta-card,
     .seo-main-card,
     .sidebar-card,
-    .terms-card,
     .finance-card,
     .terminal-card,
     .pay-slab,
@@ -170,7 +168,6 @@
     .s-cta-card,
     .seo-main-card,
     .sidebar-card,
-    .terms-card,
     .finance-card,
     .terminal-card,
     .pay-slab,
@@ -185,7 +182,6 @@
     .s-cta-card::before,
     .seo-main-card::before,
     .sidebar-card::before,
-    .terms-card::before,
     .finance-card::before,
     .terminal-card::before,
     .pay-slab::before,
@@ -207,7 +203,6 @@
     .s-cta-card:hover,
     .seo-main-card:hover,
     .sidebar-card:hover,
-    .terms-card:hover,
     .finance-card:hover,
     .terminal-card:hover,
     .pay-slab:hover,
@@ -229,8 +224,6 @@
     .seo-rich-content h4,
     .sidebar-title,
     .related-content .title,
-    .terms-content-body h2,
-    .terms-content-body strong,
     .f-account-type,
     .terminal-header,
     .prod-name,
@@ -305,7 +298,7 @@
     .btn-outline-gold:hover,
     .a-btn-ghost:hover {
         background: rgba(229,58,18,0.12) !important;
-        color: #fff !important;
+        color: #000 !important;
         transform: translateY(-4px);
     }
 
@@ -365,8 +358,7 @@
         .s-cta-card,
         .seo-main-card,
         .sidebar-card,
-        .terms-card,
-        .finance-card,
+            .finance-card,
         .terminal-card,
         .pay-slab,
         .table-wrap {

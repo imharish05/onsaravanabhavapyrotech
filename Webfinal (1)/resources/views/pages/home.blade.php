@@ -852,7 +852,7 @@
             font-family: var(--font-display);
             font-size: 2.1rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFCC44 40%, #F0A832 100%);
+            background: linear-gradient(135deg, #e53a12 0%, #FFCC44 40%, #e53a12 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -863,7 +863,7 @@
 
         .fact-label {
             font-size: .8rem;
-            color: #ffffff;
+            /* color: #ffffff; */
             margin-top: 6px;
             font-weight: 700;
             letter-spacing: .5px;
@@ -1706,7 +1706,7 @@
        ======================== */
         .how-section {
             padding: 120px 40px;
-            /* background: #080810; */
+            background: #080810;
             /* Matching the deep dark theme */
             position: relative;
             overflow: hidden;
@@ -1817,6 +1817,7 @@
             width: 90px;
             height: 90px;
             /* background: #0b0b14; */
+            background: #0b0b14;
             border: 2px solid rgba(255, 255, 255, .2);
             border-radius: 50%;
             display: flex;
@@ -1838,7 +1839,7 @@
             font-family: var(--font-display);
             font-size: 1.9rem;
             font-weight: 900;
-            color: black !important;
+            color: #ffffff !important;
             text-shadow: 0 1px 4px rgba(0, 0, 0, .8), 0 0 12px rgba(255, 255, 255, .3);
             transition: .3s;
         }
@@ -1979,7 +1980,7 @@
         }
 
         .why-cell {
-            background: rgba(15, 15, 25, 0.7) !important;
+            background: black !important;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -2209,7 +2210,7 @@
         .why-cell-desc {
             grid-area: desc;
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: white;
             line-height: 1.6;
             transition: color 0.3s;
         }
@@ -2224,7 +2225,7 @@
             font-family: var(--font-display);
             font-size: 2.4rem;
             font-weight: 900;
-            /* color: rgba(255, 255, 255, 0.1); */
+            color: #e53a12;
             transition: all .4s;
         }
 
@@ -2253,7 +2254,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             margin-top: 60px;
-            background: rgba(255, 255, 255, .03);
+            background: #0b0b18;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, .1);
             border-radius: 30px;
@@ -2915,7 +2916,7 @@
        ======================== */
         .cta-banner {
             padding: 100px 40px;
-            background: #3d3d43;
+            /* background: #3d3d43; */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -2946,14 +2947,14 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 4.5vw, 3.6rem);
             font-weight: 900;
-            color: #fff;
+            /* color: #fff; */
             line-height: 1.1;
             margin-bottom: 18px;
             text-shadow: 0 2px 10px rgba(255, 255, 255, .3), 0 0 40px rgba(255, 255, 255, .2);
         }
 
         .cta-banner h2 span {
-            background: linear-gradient(135deg, #FFF 0%, #F0A832 50%, #D4860A 100%);
+            background: linear-gradient(135deg, #FFF 0%, #e53a12 50%, #e53a12 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -2961,7 +2962,7 @@
         }
 
         .cta-banner p {
-            color: #b8b8c8;
+            /* color: #b8b8c8; */
             font-size: 1.05rem;
             line-height: 1.7;
             margin-bottom: 40px;
@@ -4038,6 +4039,8 @@ alt="Order Process">
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
                     obs.unobserve(entry.target);
                 }
             });

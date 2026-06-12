@@ -103,11 +103,11 @@
         }
 
         .terms-card {
-            background: #fff;
+            background: #13131f;
             border-radius: 40px;
             padding: 80px;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.03);
-            border: 1px solid var(--stone);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255,255,255,0.08);
             position: relative;
         }
 
@@ -121,8 +121,20 @@
 
         /* Aggressive Universal Override for Summernote inline styles */
         .terms-content-body * {
-            color: inherit !important;
+            color: rgba(255,255,255,0.72) !important;
             background-color: transparent !important;
+        }
+
+        .terms-content-body h1,
+        .terms-content-body h2,
+        .terms-content-body h3,
+        .terms-content-body h4,
+        .terms-content-body h5,
+        .terms-content-body h6,
+        .terms-content-body h1 *,
+        .terms-content-body h2 *,
+        .terms-content-body h3 * {
+            color: #ffffff !important;
         }
 
         .terms-content-body h1,
@@ -244,10 +256,10 @@
         }
 
         .terms-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            background: #13131f;
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 2px solid rgba(255, 255, 255, 0.5) !important;
+            border: 2px solid rgba(255, 255, 255, 0.15) !important;
             border-radius: 40px;
             padding: 80px;
             box-shadow: 
