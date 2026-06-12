@@ -108,9 +108,9 @@
    HEADER STYLES (ENTERPRISE)
    ======================== */
     .top-announcement {
-        background: #0b0b14;
-        /* Deep Midnight */
-        color: rgba(255, 255, 255, 0.8);
+        background: #FFFFFF;
+        /* White Background */
+        color: #000000;
         padding: 10px 40px;
         font-size: 0.75rem;
         font-weight: 800;
@@ -156,19 +156,19 @@
     }
 
     .ticker-item i {
-        color: #F0A832;
-        /* Gold Icons */
+        color: #e53a12;
+        /* Orange Icons */
         margin-right: 8px;
     }
 
     .a-right a {
-        color: rgba(255, 255, 255, 0.9);
+        color: #000000;
         text-decoration: none;
         transition: 0.3s;
     }
 
     .a-right a:hover {
-        color: #F0A832;
+        color: #e53a12;
     }
 
     /* HIDE GOOGLE TRANSLATE BAR & ARTIFACTS */
@@ -382,13 +382,13 @@
     }
 
     .l-btn.active {
-        background: #FFF;
-        color: #0b0b14;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+        background: #e53a12;
+        color: #FFF;
+        box-shadow: 0 4px 10px rgba(229, 58, 18, 0.2);
     }
 
     .h-cta-btn {
-        background: #0b0b14;
+        background: #e53a12;
         color: #FFF;
         padding: 12px 30px;
         border-radius: 50px;
@@ -399,7 +399,7 @@
         align-items: center;
         gap: 12px;
         transition: .4s cubic-bezier(0.23, 1, 0.32, 1);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(229, 58, 18, 0.3);
         border: 2px solid transparent;
         position: relative;
         overflow: hidden;
@@ -418,8 +418,8 @@
 
     .h-cta-btn:hover {
         transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        background: #1a1a2e;
+        box-shadow: 0 15px 40px rgba(229, 58, 18, 0.4);
+        background: #c92a0d;
     }
 
     .h-cta-btn:hover::before {
@@ -443,7 +443,7 @@
     .m-line {
         width: 22px;
         height: 2px;
-        background: #F0A832;
+        background: #e53a12;
         border-radius: 4px;
         transition: .4s;
     }
@@ -471,10 +471,10 @@
         right: -340px;
         width: 340px;
         height: 100%;
-        background: linear-gradient(145deg, rgba(11, 11, 20, 0.98), rgba(20, 20, 35, 0.98));
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 245, 0.98));
         backdrop-filter: blur(30px);
         -webkit-backdrop-filter: blur(30px);
-        border-left: 2px solid rgba(255, 255, 255, 0.4);
+        border-left: 2px solid rgba(229, 58, 18, 0.2);
         transition: .5s cubic-bezier(0.19, 1, 0.22, 1);
         padding: 40px;
         display: flex;
@@ -498,9 +498,9 @@
     }
 
     .drawer-close {
-        background: rgba(255, 255, 255, .05);
-        color: #FFF;
-        border: 1px solid rgba(255, 255, 255, .1);
+        background: rgba(0, 0, 0, .05);
+        color: #000;
+        border: 1px solid rgba(0, 0, 0, .1);
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -513,8 +513,8 @@
     }
 
     .drawer-close:hover {
-        background: rgba(255, 255, 255, .1);
-        color: #F0A832;
+        background: rgba(229, 58, 18, .1);
+        color: #e53a12;
     }
 
     .m-drawer-links {
@@ -530,33 +530,33 @@
     .m-drawer-links a {
         font-size: 1.5rem;
         text-decoration: none;
-        color: #FFF;
+        color: #000;
         font-family: var(--font-display);
         font-weight: 700;
         transition: .3s;
     }
 
     .m-drawer-links a:hover {
-        color: #F0A832;
+        color: #e53a12;
     }
 
     .m-drawer-footer {
         margin-top: auto;
         padding-top: 40px;
-        border-top: 1px solid rgba(255, 255, 255, .1);
+        border-top: 1px solid rgba(0, 0, 0, .1);
     }
 
     .btn-call-m {
         display: block;
-        background: linear-gradient(135deg, #F0A832 0%, #D4860A 100%);
-        color: #0b0b14;
+        background: linear-gradient(135deg, #e53a12 0%, #b82a0d 100%);
+        color: #FFFFFF;
         text-align: center;
         padding: 15px;
         border-radius: 12px;
         text-decoration: none;
         font-weight: 700;
         margin-top: 15px;
-        box-shadow: 0 10px 20px rgba(240, 168, 50, 0.2);
+        box-shadow: 0 10px 20px rgba(229, 58, 18, 0.3);
     }
 
     @media (max-width: 1200px) {

@@ -4,7 +4,7 @@
 
     <div class="f-container">
         <!-- Brand Centerpiece -->
-        {{-- <div class="f-brand-block">
+        <div class="f-brand-block">
             <a href="{{ url('/') }}" class="f-logo-wrap">
                 <img src="{{ env('MAIN_URL', '/') . $global_settings->logo }}" alt="Sri Shyam Crackers">
             </a>
@@ -19,7 +19,7 @@
                 <a href="{{ $global_settings->youtube_link }}" target="_blank" class="s-link" title="YouTube"><i
                         class="fa-brands fa-youtube"></i></a>
             </div>
-        </div> --}}
+        </div>
 
         <!-- Links Grid -->
         <div class="f-grid">
@@ -91,14 +91,14 @@
    FOOTER STYLES (CINEMATIC)
    ======================== */
     .About-footer {
-        background: linear-gradient(180deg, #080810, #0C0C18);
+        background: linear-gradient(180deg, #FFFFFF, #f9f9f9);
         padding: 120px 40px 40px;
         position: relative;
         overflow: hidden;
-        border-top: 2px solid rgba(255, 255, 255, 0.4);
-        color: #fff;
+        border-top: 2px solid rgba(229, 58, 18, 0.2);
+        color: #000;
         font-family: var(--font-body);
-        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.05);
     }
 
     .f-particles {
@@ -132,7 +132,7 @@
     .f-brand-tag {
         font-family: var(--font-display);
         font-size: 1.4rem;
-        color: #F0A832;
+        color: #e53a12;
         letter-spacing: 2px;
         text-transform: uppercase;
         margin-bottom: 35px;
@@ -149,24 +149,24 @@
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        background: linear-gradient(135deg, rgba(229, 58, 18, 0.1), rgba(229, 58, 18, 0.05));
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #fff;
+        color: #e53a12;
         text-decoration: none;
-        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        border: 1.5px solid rgba(229, 58, 18, 0.3);
         transition: .4s;
         backdrop-filter: blur(10px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0 1px 0 rgba(229, 58, 18, 0.2);
     }
 
     .s-link:hover {
-        background: #FFFFFF;
+        background: #e53a12;
         transform: translateY(-8px);
-        border-color: #FFFFFF;
-        box-shadow: 0 15px 35px rgba(255, 255, 255, 0.25);
-        color: #0b0b14;
+        border-color: #e53a12;
+        box-shadow: 0 15px 35px rgba(229, 58, 18, 0.25);
+        color: #FFFFFF;
     }
 
     /* Links Grid */
@@ -181,10 +181,10 @@
         font-family: var(--font-display);
         font-size: 1.6rem;
         font-weight: 700;
-        color: #fff;
+        color: #000;
         margin-bottom: 35px;
         position: relative;
-        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
     
     .f-title::before {
@@ -194,8 +194,8 @@
         left: 0;
         width: 40px;
         height: 2px;
-        background: #FFFFFF;
-        box-shadow: 0 0 10px #FFFFFF;
+        background: #e53a12;
+        box-shadow: 0 0 10px #e53a12;
     }
 
     .f-title::after {
@@ -205,7 +205,7 @@
         bottom: -10px;
         width: 30px;
         height: 2px;
-        background: #F0A832;
+        background: #e53a12;
     }
 
     .f-list {
@@ -219,7 +219,7 @@
     }
 
     .f-list a {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.6);
         text-decoration: none;
         font-weight: 500;
         font-size: 0.95rem;
@@ -227,9 +227,9 @@
     }
 
     .f-list a:hover {
-        color: #F0A832;
+        color: #e53a12;
         padding-left: 10px;
-        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 15px rgba(229, 58, 18, 0.3);
     }
 
     .f-contact-item {
@@ -237,12 +237,12 @@
         gap: 20px;
         align-items: flex-start;
         margin-bottom: 25px;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.6);
         font-size: 0.92rem;
     }
 
     .f-contact-item i {
-        color: #F0A832;
+        color: #e53a12;
         font-size: 1.2rem;
         margin-top: 2px;
     }
@@ -253,13 +253,13 @@
         transition: .3s;
     }
     .f-contact-item a:hover {
-        color: #F0A832;
+        color: #e53a12;
     }
 
     /* SEO Matrix */
     .f-seo-matrix {
         padding: 80px 0;
-        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
     }
 
     .f-seo-row {
@@ -271,7 +271,7 @@
 
     .seo-h {
         font-weight: 800;
-        color: #fff;
+        color: #000;
         font-size: 0.8rem;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -286,47 +286,47 @@
     }
 
     .seo-pills a {
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(0, 0, 0, 0.6);
         text-decoration: none;
         font-size: 0.85rem;
         padding: 5px 16px;
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.03);
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.03);
         border-radius: 20px;
         transition: .4s;
         backdrop-filter: blur(5px);
     }
 
     .seo-pills a:hover {
-        color: #0b0b14;
-        border-color: #FFFFFF;
-        background: #FFFFFF;
-        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        color: #FFFFFF;
+        border-color: #e53a12;
+        background: #e53a12;
+        box-shadow: 0 10px 25px rgba(229, 58, 18, 0.2);
         transform: translateY(-2px);
     }
 
     /* Bottom */
     .f-bottom {
         padding-top: 50px;
-        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.5);
     }
 
     .f-author a {
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(0, 0, 0, 0.6);
         text-decoration: none;
         font-weight: 700;
         transition: .3s;
     }
 
     .f-author a:hover {
-        color: #F0A832;
+        color: #e53a12;
     }
-/* 
+
     @media (max-width: 1024px) {
         .f-grid {
             grid-template-columns: 1fr 1fr;
@@ -357,7 +357,7 @@
             flex-direction: column;
             gap: 10px;
         }
-    } */
+    }
 </style>
 
 <script>

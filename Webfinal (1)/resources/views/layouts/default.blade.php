@@ -37,26 +37,27 @@
     <style>
         :root {
             /* ENTERPRISE GOLDEN PALETTE */
-            --gold: #D4860A;
-            --gold-light: #F0A832;
-            --gold-deep: #996515;
-            --gold-glimmer: linear-gradient(90deg, #F0A832, #D4860A, #F0A832);
+            --gold: #e53a12;
+            --gold-light: #ff5733;
+            --gold-deep: #c92a0d;
+            --gold-glimmer: linear-gradient(90deg, #ff5733, #e53a12, #ff5733);
 
-            --ink: #080810; /* Deepest Black */
-            --text: #FFFFFF; /* Light Text */
-            --charcoal: #1F1F1F;
-            --cream: #0c0c18; /* Dark Indigo */
-            --ivory: #0b0b14; /* Deep Midnight */
-            --saffron: #F4C430;
-            --clay: #1a1a30;
+            --ink: #FFFFFF; /* White Background */
+            --text: #000000; /* Dark Text */
+            --charcoal: #333333;
+            --cream: #FFFFFF; /* White */
+            --ivory: #FFFFFF; /* White */
+            --saffron: #e53a12;
+            --clay: #f5f5f5;
 
             --font-display: 'Outfit', sans-serif;
             --font-body: 'Outfit', sans-serif;
             --font-accent: 'Outfit', sans-serif;
 
             --blur: saturate(180%) blur(20px);
-            --glass: rgba(11, 11, 20, 0.85);
-            --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(255, 255, 255, 0.1); --luminous-border: 1.5px solid rgba(255, 255, 255, 0.4); --luminous-text: 0 0 15px rgba(255, 255, 255, 0.4);
+            --glass: rgba(255, 255, 255, 0.95);
+            --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.1), 0 0 80px rgba(229, 58, 18, 0.1); --luminous-border: 1.5px solid rgba(229, 58, 18, 0.3); --luminous-text: 0 0 15px rgba(229, 58, 18, 0.3);
+        }
         }
 
         /* SIMPLE PROFESSIONAL TRANSITIONS */
@@ -98,7 +99,7 @@
         body {
             font-family: var(--font-body);
             color: var(--text);
-            background: var(--ivory);
+            background: var(--cream);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -134,7 +135,7 @@
         #preloader {
             position: fixed;
             inset: 0;
-            background: #080810;
+            background: #FFFFFF;
             z-index: 100000;
             display: flex;
             align-items: center;
@@ -145,11 +146,11 @@
         .preloader-inner {
             text-align: center;
             padding: 24px 28px;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(229, 58, 18, 0.06);
             backdrop-filter: blur(18px);
             border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(229, 58, 18, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
         }
 
         .preloader-logo {
@@ -157,14 +158,14 @@
             max-width: 100%;
             height: auto;
             margin-bottom: 20px;
-            filter: brightness(0) invert(1);
+            filter: none;
             animation: preloaderPulse 1.8s ease-in-out infinite;
         }
 
         .preloader-bar {
             width: 180px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(229, 58, 18, 0.12);
             margin: 0 auto;
             position: relative;
             overflow: hidden;
@@ -176,10 +177,10 @@
             left: 0;
             top: 0;
             height: 100%;
-            background: rgba(255, 255, 255, 0.45);
+            background: rgba(229, 58, 18, 0.6);
             width: 100%;
             border-radius: 10px;
-            opacity: 0.35;
+            opacity: 0.8;
         }
 
         @keyframes preloaderPulse {
@@ -199,8 +200,8 @@
             top: 0;
             left: 0;
             height: 5px;
-            background: linear-gradient(to right, #FFFFFF, var(--gold-light), #FFFFFF);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            background: linear-gradient(to right, #FFFFFF, var(--gold), #FFFFFF);
+            box-shadow: 0 0 15px rgba(229, 58, 18, 0.4);
             width: 0%;
             z-index: 100001;
         }
@@ -211,19 +212,19 @@
         h3 {
             font-family: var(--font-display);
             font-weight: 800;
-            color: var(--text);
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+            color: #e53a12;
+            text-shadow: 0 2px 10px rgba(229, 58, 18, 0.1);
         }
         
         .luminous-text {
             text-shadow:
-                0 2px 10px rgba(255, 255, 255, 0.3),
-                0 0 40px rgba(255, 255, 255, 0.2);
+                0 2px 10px rgba(229, 58, 18, 0.2),
+                0 0 40px rgba(229, 58, 18, 0.1);
         }
 
         .accent-text {
             font-family: var(--font-accent);
-            color: var(--gold-light);
+            color: #e53a12;
             font-style: italic;
         }
 
@@ -260,17 +261,17 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            color: #fff;
+            color: #000;
             font-size: 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             transition: 0.4s;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            background: linear-gradient(135deg, rgba(229, 58, 18, 0.1), rgba(229, 58, 18, 0.05));
             backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1.5px solid rgba(229, 58, 18, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(229, 58, 18, 0.1);
             text-decoration: none;
         }
 
@@ -284,13 +285,14 @@
         }
 
         .l-fab.ph {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            box-shadow: 0 10px 20px rgba(240, 168, 50, 0.3);
+            background: linear-gradient(135deg, #ff5733, #e53a12);
+            box-shadow: 0 10px 20px rgba(229, 58, 18, 0.3);
+            color: #FFF;
         }
 
         .l-fab.est {
-            background: var(--saffron);
-            color: #0b0b14;
+            background: #e53a12;
+            color: #FFFFFF;
         }
 
         .l-fab i {
@@ -304,28 +306,28 @@
 
         /* GO TOP */
         .go-top-premium {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            background: linear-gradient(135deg, rgba(229, 58, 18, 0.1), rgba(229, 58, 18, 0.05));
             backdrop-filter: blur(10px);
-            color: #FFFFFF;
+            color: #e53a12;
             width: 55px;
             height: 55px;
             border-radius: 50%;
             box-shadow: 
-                0 15px 40px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                0 15px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(229, 58, 18, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(229, 58, 18, 0.3);
             transition: .4s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer;
         }
 
         .go-top-premium:hover {
-            background: #FFFFFF;
-            color: #0b0b14;
+            background: #e53a12;
+            color: #FFFFFF;
             transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 14px 30px rgba(255, 255, 255, 0.18);
+            box-shadow: 0 14px 30px rgba(229, 58, 18, 0.25);
         }
     </style>
 

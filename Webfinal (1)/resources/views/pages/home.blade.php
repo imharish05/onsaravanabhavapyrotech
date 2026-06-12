@@ -1816,7 +1816,7 @@
         .step-num-wrap {
             width: 90px;
             height: 90px;
-            background: #0b0b14;
+            /* background: #0b0b14; */
             border: 2px solid rgba(255, 255, 255, .2);
             border-radius: 50%;
             display: flex;
@@ -1889,13 +1889,14 @@
         }
 
         /* ========================
-       WHY CHOOSE US — PREMIUM DARK UPLIFT
+       WHY CHOOSE US — LIGHT PROMINENCE
        ======================== */
         .why-section {
             padding: 120px 0;
-            background: #3d3d43;
+            background: #fff;
             position: relative;
             overflow: hidden;
+            color: var(--text);
         }
 
         .why-section::before {
@@ -1903,11 +1904,11 @@
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(1px 1px at 15% 25%, rgba(212, 134, 10, .2) 0%, transparent 0%),
-                radial-gradient(1px 1px at 75% 65%, rgba(255, 255, 255, .1) 0%, transparent 0%),
-                radial-gradient(1px 1px at 45% 85%, rgba(212, 134, 10, .12) 0%, transparent 0%);
+                radial-gradient(1px 1px at 15% 25%, rgba(229, 134, 18, .08) 0%, transparent 0%),
+                radial-gradient(1px 1px at 75% 65%, rgba(0, 0, 0, .04) 0%, transparent 0%),
+                radial-gradient(1px 1px at 45% 85%, rgba(229, 134, 18, .05) 0%, transparent 0%);
             background-size: 64px 64px, 48px 48px, 96px 96px;
-            opacity: 0.5;
+            opacity: 0.15;
         }
 
         .why-inner {
@@ -1924,45 +1925,48 @@
 
         .why-header .section-eyebrow {
             display: inline-block;
-            color: #F0A832;
+            color: #e53a12;
             font-size: .75rem;
             font-weight: 800;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             margin-bottom: 12px;
-            text-shadow: 0 0 10px rgba(240, 168, 50, .6);
+            text-shadow: none;
         }
 
         .why-header .section-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 900;
-            color: #FFF !important;
-            /* Overriding inline style if needed */
-            text-shadow: 0 2px 10px rgba(255, 255, 255, .3), 0 0 40px rgba(255, 255, 255, .2);
+            color: #111 !important;
+            text-shadow: none;
             margin-bottom: 16px;
         }
 
         .why-header .section-title span {
-            background: linear-gradient(135deg, #FFF 0%, #F0A832 50%, #D4860A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 16px rgba(255, 255, 255, .6)) drop-shadow(0 2px 4px rgba(255, 255, 255, .3));
+            color: #e53a12 !important;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+            filter: none;
+            text-shadow: none;
         }
 
         .why-header .section-subtitle {
-            color: #b8b8c8 !important;
+            color: rgba(0, 0, 0, 0.68) !important;
+            max-width: 780px;
+            margin: 0 auto;
         }
 
         .why-header .section-bar {
             display: block;
             width: 60px;
             height: 3px;
-            background: linear-gradient(90deg, #F0A832, #D4860A);
+            background: linear-gradient(90deg, #e53a12, #d4570a);
             margin: 0 auto;
             border-radius: 2px;
-            box-shadow: 0 0 10px rgba(240, 168, 50, .5);
+            box-shadow: 0 0 10px rgba(229, 83, 18, .25);
         }
 
         /* Numbered Glass Grid Layout */

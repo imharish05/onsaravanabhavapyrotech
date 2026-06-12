@@ -1,27 +1,27 @@
 <style>
     /* Shared homepage-inspired polish for inner pages */
     :root {
-        --gold: #D4860A;
-        --gold-deep: #B86E00;
-        --gold-light: #F0A832;
-        --gold-pale: rgba(212, 134, 10, 0.1);
-        --saffron: #E87B2D;
-        --ivory: #080810;
-        --cream: #0c0c18;
-        --sand: #121224;
-        --stone: #1a1a30;
-        --ink-light: #FFFFFF;
-        --muted-light: rgba(255,255,255,0.68);
-        --line-soft: rgba(255,255,255,0.1);
-        --line-gold: rgba(240,168,50,0.28);
-        --glow-gold: rgba(212,134,10,0.4);
-        --shadow-home-lg: 0 28px 80px rgba(0,0,0,0.58);
-        --shadow-home-md: 0 18px 48px rgba(0,0,0,0.42);
+        --gold: #e53a12;
+        --gold-deep: #c92a0d;
+        --gold-light: #ff5733;
+        --gold-pale: rgba(229, 58, 18, 0.1);
+        --saffron: #e53a12;
+        --ivory: #FFFFFF;
+        --cream: #f9f9f9;
+        --sand: #f0f0f0;
+        --stone: #e8e8e8;
+        --ink-light: #000000;
+        --muted-light: rgba(0,0,0,0.68);
+        --line-soft: rgba(0,0,0,0.1);
+        --line-gold: rgba(229,58,18,0.28);
+        --glow-gold: rgba(229,58,18,0.2);
+        --shadow-home-lg: 0 28px 80px rgba(0,0,0,0.08);
+        --shadow-home-md: 0 18px 48px rgba(0,0,0,0.06);
     }
 
     body {
         background:
-            radial-gradient(circle at 50% 0, rgba(212,134,10,0.12), transparent 34rem),
+            radial-gradient(circle at 50% 0, rgba(229,58,18,0.06), transparent 34rem),
             var(--ivory);
     }
 
@@ -45,8 +45,8 @@
     .terms-hero-overlay,
     .hero-overlay {
         background:
-            radial-gradient(circle at 50% 44%, rgba(240,168,50,0.16), transparent 18rem),
-            linear-gradient(to bottom, rgba(8,8,16,0.68), rgba(8,8,16,0.97)) !important;
+            radial-gradient(circle at 50% 44%, rgba(229,58,18,0.1), transparent 18rem),
+            linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.98)) !important;
     }
 
     .hero-parallax-bg,
@@ -66,9 +66,9 @@
     .p-title,
     .b-title,
     .c-title {
-        color: #fff !important;
+        color: #000 !important;
         font-weight: 900;
-        text-shadow: 0 16px 48px rgba(0,0,0,0.42);
+        text-shadow: 0 16px 48px rgba(0,0,0,0.1);
         letter-spacing: 0;
     }
 
@@ -81,11 +81,11 @@
     .p-title span,
     .b-title span,
     .c-title span {
-        background: linear-gradient(135deg, #fff 0%, var(--gold-light) 48%, var(--gold) 100%);
+        background: linear-gradient(135deg, #e53a12 0%, #ff5733 48%, #c92a0d 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        filter: drop-shadow(0 0 16px rgba(240,168,50,0.28));
+        filter: drop-shadow(0 0 16px rgba(229,58,18,0.2));
     }
 
     .hero-eyebrow,
@@ -111,8 +111,8 @@
     .c-bar,
     .s-card-bar,
     .seo-indicator {
-        background: linear-gradient(90deg, var(--gold-light), var(--gold)) !important;
-        box-shadow: 0 0 12px rgba(240,168,50,0.5);
+        background: linear-gradient(90deg, #ff5733, #e53a12) !important;
+        box-shadow: 0 0 12px rgba(229,58,18,0.3);
     }
 
     .hero-subtitle,
@@ -135,8 +135,8 @@
     .estimate-content,
     .success-page {
         background:
-            radial-gradient(circle at 50% 0, rgba(212,134,10,0.1), transparent 28rem),
-            linear-gradient(180deg, rgba(8,8,16,0.98), rgba(12,12,24,0.98)) !important;
+            radial-gradient(circle at 50% 0, rgba(229,58,18,0.05), transparent 28rem),
+            linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,249,249,0.98)) !important;
     }
 
     .luxury-blog-card,
@@ -156,7 +156,7 @@
     .contact-form-glass,
     .info-block,
     .step-item-glass {
-        background: rgba(15,15,28,0.92) !important;
+        background: rgba(255,255,255,0.92) !important;
         border: 1px solid var(--line-gold) !important;
         box-shadow: var(--shadow-home-md);
         backdrop-filter: blur(18px);
@@ -196,8 +196,8 @@
         inset: 0;
         pointer-events: none;
         background:
-            linear-gradient(135deg, rgba(255,255,255,0.08), transparent 32%),
-            radial-gradient(circle at 85% 0, rgba(240,168,50,0.13), transparent 34%);
+            linear-gradient(135deg, rgba(0,0,0,0.02), transparent 32%),
+            radial-gradient(circle at 85% 0, rgba(229,58,18,0.08), transparent 34%);
         opacity: 0.85;
     }
 
@@ -214,8 +214,8 @@
     .info-block:hover,
     .step-item-glass:hover {
         transform: translateY(-8px);
-        border-color: rgba(240,168,50,0.56) !important;
-        box-shadow: var(--shadow-home-lg), 0 0 0 1px rgba(240,168,50,0.08);
+        border-color: rgba(229,58,18,0.4) !important;
+        box-shadow: var(--shadow-home-lg), 0 0 0 1px rgba(229,58,18,0.08);
     }
 
     .l-card-title,
@@ -238,7 +238,7 @@
     .rowTotal,
     .category td,
     .summary-value {
-        color: #fff !important;
+        color: #000 !important;
     }
 
     .l-card-excerpt,
@@ -253,7 +253,7 @@
     .slab-meta,
     .summary-label,
     thead th {
-        color: rgba(255,255,255,0.62) !important;
+        color: rgba(0,0,0,0.62) !important;
     }
 
     .l-card-link,
@@ -264,7 +264,7 @@
     .price,
     .fin-row.total .val,
     .token-id {
-        color: var(--gold-light) !important;
+        color: #e53a12 !important;
     }
 
     .btn-primary,
@@ -274,10 +274,10 @@
     .a-btn-gold,
     .qr-action,
     .mobile-sticky-bar {
-        background: linear-gradient(135deg, var(--gold-deep), var(--saffron)) !important;
+        background: linear-gradient(135deg, #c92a0d, #e53a12) !important;
         color: #fff !important;
         border: none !important;
-        box-shadow: 0 16px 34px rgba(212,134,10,0.28);
+        box-shadow: 0 16px 34px rgba(229,58,18,0.28);
         transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
     }
 
@@ -290,21 +290,21 @@
     .mobile-sticky-bar:hover {
         transform: translateY(-5px);
         filter: brightness(1.08);
-        box-shadow: var(--shadow-home-lg), 0 0 0 6px rgba(212,134,10,0.12);
+        box-shadow: var(--shadow-home-lg), 0 0 0 6px rgba(229,58,18,0.12);
     }
 
     .btn-outline,
     .btn-outline-gold,
     .a-btn-ghost {
         border-color: var(--line-gold) !important;
-        color: var(--gold-light) !important;
-        background: rgba(255,255,255,0.035) !important;
+        color: #e53a12 !important;
+        background: rgba(229,58,18,0.035) !important;
     }
 
     .btn-outline:hover,
     .btn-outline-gold:hover,
     .a-btn-ghost:hover {
-        background: rgba(212,134,10,0.12) !important;
+        background: rgba(229,58,18,0.12) !important;
         color: #fff !important;
         transform: translateY(-4px);
     }
@@ -313,40 +313,40 @@
     textarea,
     select,
     .order-input {
-        background: rgba(255,255,255,0.07) !important;
-        border-color: rgba(255,255,255,0.14) !important;
-        color: #fff !important;
+        background: rgba(0,0,0,0.04) !important;
+        border-color: rgba(0,0,0,0.12) !important;
+        color: #000 !important;
     }
 
     input::placeholder,
     textarea::placeholder {
-        color: rgba(255,255,255,0.45) !important;
+        color: rgba(0,0,0,0.45) !important;
     }
 
     input:focus,
     textarea:focus,
     select:focus {
-        border-color: var(--gold-light) !important;
-        box-shadow: 0 0 0 4px rgba(240,168,50,0.12) !important;
+        border-color: #e53a12 !important;
+        box-shadow: 0 0 0 4px rgba(229,58,18,0.12) !important;
         outline: none !important;
     }
 
     .About-footer {
         background:
-            radial-gradient(circle at 50% 0, rgba(212,134,10,0.08), transparent 30rem),
-            #080810 !important;
+            radial-gradient(circle at 50% 0, rgba(229,58,18,0.05), transparent 30rem),
+            #FFFFFF !important;
         position: relative;
         z-index: 10;
     }
 
     .f-title::after {
-        box-shadow: 0 0 12px rgba(240,168,50,0.5);
+        box-shadow: 0 0 12px rgba(229,58,18,0.3);
     }
 
     .f-list a:hover,
     .f-contact-item a:hover,
     .f-author a:hover {
-        color: var(--gold-light) !important;
+        color: #e53a12 !important;
     }
 
     @media (max-width: 575px) {

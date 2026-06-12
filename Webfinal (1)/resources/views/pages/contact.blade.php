@@ -1110,6 +1110,78 @@
             grid-template-columns: 1fr 1fr !important;
         }
         }
+
+    /* Light theme overrides for Contact page */
+    .main-page-wrap,
+    .premium-hero,
+    .hero-gradient,
+    .hero-info,
+    .contact-interface,
+    .info-block,
+    .form-wrap,
+    .map-section,
+    .process-section,
+    .step-item-glass,
+    .map-wrap,
+    .premium-map-area {
+        background: #fff !important;
+        color: var(--text) !important;
+        border-color: rgba(0,0,0,0.08) !important;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.08) !important;
+    }
+
+    .main-page-wrap {
+        background: #f7f7f4 !important;
+    }
+
+    .hero-gradient {
+        background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,250,0.96)) !important;
+    }
+
+    .hero-display-title,
+    .hero-subtitle,
+    .c-title,
+    .c-desc,
+    .f-title,
+    .form-header h3,
+    .process-section .step-title,
+    .input-group-f label {
+        color: #111 !important;
+    }
+
+    .c-title span,
+    .c-eyebrow {
+        color: #e53a12 !important;
+    }
+
+    .c-eyebrow {
+        background: rgba(229, 234, 238, 0.65) !important;
+        border-color: rgba(229, 234, 238, 0.9) !important;
+    }
+
+    .form-header,
+    .contact-interface {
+        background: #fcfcfc !important;
+    }
+
+    .input-group-f input,
+    .input-group-f textarea,
+    .input-group-f select,
+    .input-group-f .nice-select {
+        background: #fff !important;
+        color: #111 !important;
+        border-color: rgba(0,0,0,0.12) !important;
+    }
+
+    .btn-gold {
+        background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
+        color: #080810 !important;
+    }
+
+    .step-item-glass {
+        background: rgba(255,255,255,0.92) !important;
+        border-color: rgba(0,0,0,0.08) !important;
+    }
         
     </style>
 

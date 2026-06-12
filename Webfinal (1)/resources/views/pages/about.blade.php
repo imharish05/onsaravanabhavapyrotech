@@ -1321,6 +1321,88 @@
         }
        }
 
+    /* Light theme overrides for About page */
+    .premium-hero,
+    .hero-glass-overlay,
+    .narrative-section,
+    .values-section,
+    .stats-bar,
+    .about-cta,
+    .cta-glass-box,
+    .v-card,
+    .n-badge,
+    .stat-item,
+    .stats-container,
+    .cta-content,
+    .hero-meta,
+    .v-card:hover {
+        background: rgba(255,255,255,0.95) !important;
+        color: var(--text) !important;
+        border-color: rgba(0,0,0,0.08) !important;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08) !important;
+        text-shadow: none !important;
+    }
+
+    .premium-hero {
+        background: var(--cream) !important;
+    }
+
+    .hero-glass-overlay,
+    .cta-glass-box,
+    .n-badge,
+    .stat-item,
+    .v-card {
+        background: rgba(255,255,255,0.96) !important;
+    }
+
+    .narrative-title,
+    .v-title,
+    .cta-display,
+    .s-val,
+    .s-lab,
+    .v-card h3,
+    .v-card p,
+    .cta-btn-gold,
+    .cta-content p,
+    .narrative-body {
+        color: rgba(0,0,0,0.85) !important;
+    }
+
+    .v-title span,
+    .narrative-title span,
+    .cta-display span {
+        color: #e53a12 !important;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: unset !important;
+        filter: none !important;
+        text-shadow: none !important;
+    }
+
+    .n-badge {
+        background: rgba(255,255,255,0.92) !important;
+        color: #111 !important;
+    }
+
+    .stats-bar {
+        background: var(--cream) !important;
+        color: var(--text) !important;
+    }
+
+    .about-cta {
+        background: var(--cream) !important;
+    }
+
+    .cta-glass-box {
+        background: rgba(255,255,255,0.98) !important;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.08) !important;
+    }
+
+    .cta-btn-gold {
+        background: linear-gradient(135deg, var(--gold-light), var(--gold)) !important;
+        color: #0b0b14 !important;
+    }
+
     /* CUSTOM CURSOR REMOVED */
 </style>
 
