@@ -1360,8 +1360,7 @@
        ======================== */
         .categories-section {
             padding: 120px 40px;
-            /* background: #3d3d43; */
-            /* Slightly lighter dark to contrast with Products #080810 */
+            background: #f7f7f8;
             position: relative;
             overflow: hidden;
         }
@@ -1399,24 +1398,19 @@
             letter-spacing: 3.5px;
             text-transform: uppercase;
             margin-bottom: 12px;
-            /* text-shadow: 0 0 10px #e53a12; */
         }
 
         .categories-section .section-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 3vw, 2.8rem);
             font-weight: 900;
-            color: #e53a12;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, .3), 0 0 40px rgba(255, 255, 255, .2);
+            color: #111111;
             margin-bottom: 16px;
         }
 
         .categories-section .section-title span {
-            background: linear-gradient(135deg, #FFF 0%, #e53a12 50%, #e53a12 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 16px rgba(255, 255, 255, .6)) drop-shadow(0 2px 4px rgba(255, 255, 255, .3));
+            color: #e53a12;
+            -webkit-text-fill-color: #e53a12;
         }
 
         .categories-section .section-bar {
@@ -1426,279 +1420,156 @@
             background: linear-gradient(90deg, #F0A832, #e53a12) !important;
             margin: 0 auto;
             border-radius: 2px;
-            box-shadow: 0 0 10px rgba(240, 168, 50, .5);
         }
 
         /* ── Premium Categories Grid ── */
+        /* ========================
+           CATEGORIES — STYLE A: CLEAN WHITE CARDS
+           ======================== */
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             margin-top: 60px;
         }
 
         .cat-card-premium {
-            position: relative;
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
             display: flex;
             flex-direction: column;
-            border-radius: 24px;
-            text-decoration: none;
-            transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-            background: rgba(15, 15, 25, 0.7);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.19,1,0.22,1),
+                        box-shadow 0.35s cubic-bezier(0.19,1,0.22,1),
+                        border-color 0.25s;
         }
 
         .cat-card-premium:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Beam Background */
-        .cat-card-beam {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(transparent, rgba(255, 255, 255, .8), rgba(240, 168, 50, .8), rgba(255, 255, 255, .8), transparent 30%);
-            animation: spinBeam 4s linear infinite;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .cat-card-premium:hover .cat-card-beam {
-            opacity: 1;
-            animation: spinBeam 3s linear infinite;
-        }
-
-        .cat-card-inner {
-            position: absolute;
-            inset: 2px;
-            /* Border thickness */
-            background: linear-gradient(145deg, #121218, #0a0a10);
-            border-radius: 22px;
-            z-index: 1;
-        }
-
-        .cat-card-content-wrapper {
-            position: relative;
-            z-index: 2;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        @keyframes spinBeam {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .cat-card-bg-glow {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(212, 134, 10, 0.2) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .cat-card-premium:hover .cat-card-bg-glow {
-            opacity: 1;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.1);
+            border-color: #e0e0e0;
         }
 
         .cat-img-stage {
-            position: relative;
             width: 100%;
-            height: 280px;
-            /* Increased height for full image feel */
-            border-radius: 20px;
+            height: 180px;
             overflow: hidden;
-            z-index: 1;
-            background: #0b0b14;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .cat-card-premium:hover .cat-img-stage {
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05), 0 12px 30px rgba(212, 134, 10, 0.25);
-            border-color: rgba(240, 168, 50, 0.5);
+            background: #f5f5f5;
+            flex-shrink: 0;
         }
 
         .cat-real-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
             opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19,1,0.22,1);
+            transform: scale(1.04);
         }
 
         .cat-real-image.loaded {
             opacity: 1;
+            transform: scale(1);
         }
 
         .cat-card-premium:hover .cat-real-image {
-            transform: scale(1.08);
-        }
-
-        /* Skeleton Loader Shimmer */
-        .skeleton-loader {
-            background: #1a1a30 !important;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skeleton-loader::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: skeleton-shimmer 1s infinite;
-            z-index: 5;
-        }
-
-        @keyframes skeleton-shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
+            transform: scale(1.06);
         }
 
         .cat-content {
+            padding: 16px 18px 18px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            padding: 20px;
-            background: linear-gradient(to bottom, transparent, rgba(15, 15, 25, 0.9));
-            backdrop-filter: blur(5px);
-            z-index: 1;
-            flex-grow: 1;
-            margin-top: -60px;
-            /* Overlap with image */
-            position: relative;
+            gap: 10px;
+            flex: 1;
         }
 
         .cat-title {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 0.95rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #111111;
             margin: 0;
-            letter-spacing: 0.5px;
             line-height: 1.3;
-            text-align: left;
-            text-transform: capitalize;
-            transition: transform 0.4s ease, filter 0.4s ease, color 0.4s ease;
-        }
-
-        .cat-card-premium:hover .cat-title {
-            color: #fff;
-            transform: translateX(4px);
-            text-shadow: 0 0 20px var(--accent);
-        }
-
-        .cat-card-premium:nth-child(1) {
-            --accent: #00d2ff;
-        }
-
-        .cat-card-premium:nth-child(2) {
-            --accent: #8E2DE2;
-        }
-
-        .cat-card-premium:nth-child(3) {
-            --accent: var(--gold-light);
-        }
-
-        .cat-card-premium:nth-child(4) {
-            --accent: #38ef7d;
-        }
-
-        .cat-card-premium:nth-child(5) {
-            --accent: #ff4b2b;
-        }
-
-        .cat-card-premium:nth-child(6) {
-            --accent: #00c6ff;
-        }
-
-        .cat-card-premium:hover .cat-img-stage {
-            border-color: var(--accent);
-            box-shadow: 0 15px 35px var(--accent)33;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
         }
 
         .cat-link {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 15px;
+            gap: 8px;
             margin-top: auto;
         }
 
         .cat-link span {
-            font-size: 0.85rem;
+            font-size: 0.72rem;
             font-weight: 800;
-            color: rgba(255, 255, 255, 0.4);
+            color: #888;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.4s ease, letter-spacing 0.4s ease, text-shadow 0.4s ease;
+            letter-spacing: 1.5px;
+            transition: color 0.25s;
         }
 
         .cat-card-premium:hover .cat-link span {
-            color: var(--accent);
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px var(--accent);
+            color: #e53a12;
         }
 
         .cat-icon-wrap {
-            width: 40px;
-            height: 40px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background: #f3f3f3;
+            border: 1px solid #e8e8e8;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s;
+            font-size: 0.7rem;
+            color: #888;
+            transition: all 0.25s;
+            flex-shrink: 0;
         }
 
         .cat-card-premium:hover .cat-icon-wrap {
-            background: var(--accent);
+            background: #e53a12;
+            border-color: #e53a12;
             color: #fff;
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent);
+            transform: translateX(3px);
         }
 
-        align-items: center;
-        justify-content: center;
-        color: rgba(255, 255, 255, 0.6);
-        transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        /* Skeleton shimmer */
+        .skeleton-loader {
+            background: #f0f0f0 !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .skeleton-loader::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            animation: skeleton-shimmer 1.2s infinite;
+            z-index: 10;
+        }
+        @keyframes skeleton-shimmer {
+            0%   { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
-        .cat-card-premium:hover .cat-icon-wrap {
-            background: linear-gradient(135deg, #F0A832, #D4860A);
-            color: #ffffff;
-            box-shadow: 0 0 20px rgba(212, 134, 10, 0.5);
-            transform: rotate(-45deg);
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .categories-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+            .cat-img-stage { height: 150px; }
+        }
+        @media (max-width: 480px) {
+            .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .cat-img-stage { height: 130px; }
+            .cat-content { padding: 12px 14px 14px; }
         }
 
         /* ========================
@@ -3599,24 +3470,14 @@
             : asset('assets/img/categories/img1.jpg');
             @endphp
             <a href="{{ url('estimate') }}?category={{ urlencode(strtolower($category->category_name)) }}" class="cat-card-premium">
-                <!-- Animated Border Beam -->
-                <div class="cat-card-beam"></div>
-                <!-- Dark Mask Overlay -->
-                <div class="cat-card-inner"></div>
-
-                <div class="cat-card-content-wrapper">
-                    <div class="cat-card-bg-glow"></div>
-
-                    <div class="cat-img-stage skeleton-loader">
-                        <img src="{{ $catImage }}" alt="{{ $category->category_name }}" class="cat-real-image" loading="lazy" onload="this.classList.add('loaded'); this.parentElement.classList.remove('skeleton-loader')" onerror="this.src='{{ asset('assets/img/categories/img1.jpg') }}'; this.classList.add('loaded'); this.parentElement.classList.remove('skeleton-loader')">
-                    </div>
-
-                    <div class="cat-content">
-                        <h3 class="cat-title">{{ $category->category_name }}</h3>
-                        <div class="cat-link">
-                            <span>Explore Range</span>
-                            <div class="cat-icon-wrap"><i class="fa-solid fa-arrow-right"></i></div>
-                        </div>
+                <div class="cat-img-stage skeleton-loader">
+                    <img src="{{ $catImage }}" alt="{{ $category->category_name }}" class="cat-real-image" loading="lazy" onload="this.classList.add('loaded'); this.parentElement.classList.remove('skeleton-loader')" onerror="this.src='{{ asset('assets/img/categories/img1.jpg') }}'; this.classList.add('loaded'); this.parentElement.classList.remove('skeleton-loader')">
+                </div>
+                <div class="cat-content">
+                    <h3 class="cat-title">{{ $category->category_name }}</h3>
+                    <div class="cat-link">
+                        <span>Explore Range</span>
+                        <div class="cat-icon-wrap"><i class="fa-solid fa-arrow-right"></i></div>
                     </div>
                 </div>
             </a>
