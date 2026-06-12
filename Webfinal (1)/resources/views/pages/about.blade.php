@@ -1089,7 +1089,7 @@
         margin-bottom: 25px;
         color: #fff;
         font-weight: 900;
-        text-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        /* text-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); */
     }
 
     .cta-display span {

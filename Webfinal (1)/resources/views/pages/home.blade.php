@@ -2403,6 +2403,7 @@
         .brands-marquee-wrap {
             overflow: hidden;
             position: relative;
+            width: 100%;
         }
 
         .brands-marquee-wrap::before,
@@ -2427,8 +2428,9 @@
         }
 
         .brands-track {
-            display: inline-flex;
-            animation: marquee 30s linear infinite;
+            display: flex;
+            width: max-content;
+            will-change: transform;
         }
 
         @keyframes marquee {
@@ -3440,7 +3442,7 @@
             </div>
             <img class="about-img-main" src="{{ env('MAIN_URL', '/') . $settings->welcome_image }}"
                 alt="Crackers Store">
-            <img class="about-img-accent" src="{{ env('MAIN_URL', '/') . $settings->welcome_image }}" alt="">
+            <img class="about-img-accent" src="{{ asset('assets/images/oms.jpeg') }}" alt="Crackers Store">
         </div>
 
         <div class="about-text-col">
@@ -4083,6 +4085,48 @@ alt="Order Process">
             item.classList.toggle('open');
         });
     });
+})();
+</script>
+<script>
+/* ===== BRANDS JS MARQUEE ===== */
+(function () {
+    var wrap = document.querySelector('.brands-marquee-wrap');
+    var track = document.getElementById('brandsTrack');
+    if (!wrap || !track) return;
+
+    // Clone all children for seamless loop
+    var origChildren = Array.from(track.children);
+    origChildren.forEach(function (card) {
+        track.appendChild(card.cloneNode(true));
+    });
+
+    var pos = 0;
+    var speed = 0.4;
+    var paused = false;
+    var halfW = 0;
+
+    function getHalf() {
+        halfW = origChildren.reduce(function (sum, c) {
+            return sum + c.offsetWidth + parseInt(getComputedStyle(c).marginLeft || 0) + parseInt(getComputedStyle(c).marginRight || 0);
+        }, 0);
+    }
+
+    function step() {
+        if (!paused) {
+            pos -= speed;
+            if (halfW > 0 && Math.abs(pos) >= halfW) pos = 0;
+            track.style.transform = 'translateX(' + pos + 'px)';
+        }
+        requestAnimationFrame(step);
+    }
+
+    wrap.addEventListener('mouseenter', function () { paused = true; });
+    wrap.addEventListener('mouseleave', function () { paused = false; });
+
+    // Wait for images to load before measuring
+    window.addEventListener('load', function () { getHalf(); requestAnimationFrame(step); });
+    setTimeout(function () { getHalf(); }, 500);
+    requestAnimationFrame(step);
 })();
 </script>
 @endpush

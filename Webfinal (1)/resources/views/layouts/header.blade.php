@@ -1,9 +1,9 @@
 <!-- ===== ENTERPRISE FLOATING HEADER ===== -->
 <div class="top-announcement">
     <div class="a-inner">
-        <div class="ticker-container">
-            <div class="ticker-content">
-                {!! $global_settings->top_offer_text ?? '<span class="ticker-item"><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span><span class="ticker-item"><i class="fa-solid fa-shield"></i> Child-Safe Certified</span><span class="ticker-item"><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span>' !!}
+        <div class="ticker-container" id="tickerContainer">
+            <div class="ticker-track" id="tickerTrack">
+                <div class="ticker-set" id="tickerSet1">{!! $global_settings->top_offer_text ?? '<span><i class="fa-solid fa-bolt"></i> Sivakasi Direct Delivery</span> &nbsp;&nbsp;★&nbsp;&nbsp; <span><i class="fa-solid fa-shield"></i> Child-Safe Certified</span> &nbsp;&nbsp;★&nbsp;&nbsp; <span><i class="fa-solid fa-leaf"></i> Eco-Friendly Sparklers Available</span> &nbsp;&nbsp;★&nbsp;&nbsp; <span><i class="fa-solid fa-fire"></i> Flash 80% OFF — Limited Time Only!</span>' !!}</div>
             </div>
         </div>
         <div class="a-right">
@@ -131,22 +131,28 @@
     .ticker-container {
         overflow: hidden;
         flex: 1;
+        min-width: 0;
         margin-right: 50px;
         position: relative;
+        cursor: default;
     }
 
-    .ticker-wrapper {
-        display: block;
-    }
-
-    .ticker-content {
+    .ticker-track {
         display: flex;
-        gap: 35px;
-        flex-wrap: wrap;
-        padding-right: 0;
+        width: max-content;
+        will-change: transform;
     }
 
-    .ticker-item {
+    .ticker-set {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding-right: 50px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .ticker-set * {
         white-space: nowrap;
     }
 
@@ -155,9 +161,17 @@
         gap: 35px;
     }
 
-    .ticker-item i {
+    .ticker-item,
+    .ticker-set span,
+    .ticker-set p {
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .ticker-item i,
+    .ticker-set i {
         color: #e53a12;
-        /* Orange Icons */
         margin-right: 8px;
     }
 
@@ -655,5 +669,41 @@
             autoDisplay: false
         }, 'google_translate_element');
     }
+</script>
+<script>
+    /* ===== JS MARQUEE ENGINE ===== */
+    (function () {
+        var container = document.getElementById('tickerContainer');
+        var track = document.getElementById('tickerTrack');
+        var set1 = document.getElementById('tickerSet1');
+        if (!container || !track || !set1) return;
+
+        // Clone set for seamless loop
+        var set2 = set1.cloneNode(true);
+        set2.removeAttribute('id');
+        track.appendChild(set2);
+
+        var pos = 0;
+        var speed = 0.5; // px per frame
+        var paused = false;
+        var raf;
+
+        function step() {
+            if (!paused) {
+                pos -= speed;
+                var setW = set1.offsetWidth;
+                if (setW > 0 && Math.abs(pos) >= setW) {
+                    pos = 0;
+                }
+                track.style.transform = 'translateX(' + pos + 'px)';
+            }
+            raf = requestAnimationFrame(step);
+        }
+
+        container.addEventListener('mouseenter', function () { paused = true; });
+        container.addEventListener('mouseleave', function () { paused = false; });
+
+        raf = requestAnimationFrame(step);
+    })();
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
