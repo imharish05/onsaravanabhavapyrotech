@@ -704,9 +704,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .05));
+            background: linear-gradient(135deg, #e53a12, rgba(255, 255, 255, .05));
             border: 1.5px solid rgba(255, 255, 255, .6);
-            color: #FFFFFF;
+            /* color: #FFFFFF; */
             font-size: .68rem;
             font-weight: 800;
             letter-spacing: 3.5px;
