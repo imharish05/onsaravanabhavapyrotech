@@ -3,13 +3,13 @@
     <div class="col-lg-12">
         <div class="card card-h-100">
             <div class="card-body">
-                <div class="mb-5 text-end">
+                {{-- <div class="mb-5 text-end">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#editproductBackdrop1">
                         Add Blog
                     </button>
 
-                </div>
+                </div> --}}
 
 
                 {{-- {{ $dataTable->table() }} --}}
@@ -34,7 +34,7 @@
 
 
 
-                                <th>Action</th>
+                                {{-- <th>Action</th> --}}
 
                             </tr>
                         </thead>
@@ -54,7 +54,7 @@
 
 
 
-                                    <td>
+                                    {{-- <td>
                                         <button class="btn btn-success waves-effect waves-light editproductdats"
                                             data-bs-toggle="modal" data-bs-target="#updateproductBackdrop1"
                                             data-id="{{ $pro->id }}" data-headingid="{{ $pro->seo_headingId }}"
@@ -63,12 +63,12 @@
                                             data-image="{{ $pro->image }}"
 
                                             data-feet_content="{{ $pro->feet_content }}" data-id="{{ $pro->id }}">
-                                       
+                                        
                                             <i class="bx bx-link-external font-size-16 align-middle me-2"></i></button>
                                         <button type="button" class="btn btn-danger waves-effect waves-light deleteblog"
                                             data-id="{{ $pro->id }}">
                                             <i class="fas fa-archive"></i></button>
-                                    </td>
+                                    </td> --}}
 
 
                                 </tr>
@@ -92,7 +92,7 @@
 
 
 
-    {{-- edit product --}}
+    {{-- Add Blog modal --}}{{--
     <div class="modal fade" id="editproductBackdrop1" tabindex="-1" aria-labelledby="editproductBackdrop1Label"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -178,9 +178,11 @@
             </div>
         </div>
     </div>
+--}}
 
 
 
+    {{-- Edit Blog modal --}}{{--
     <div class="modal fade" id="updateproductBackdrop1" tabindex="-1" aria-labelledby="updateproductBackdrop1Label"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -266,86 +268,5 @@
             </div>
         </div>
     </div>
-@endsection
-
-
-@section('scripts')
-
-<script>
-    $(document).ready(function(){
-       
-       $(document).on('click', '.editproductdats' ,function(){
-          $('#seo_id').val($(this).attr('data-id'));
-
-            const imagePath = $(this).attr("data-image");
-            $("#seoimage").attr("src", `/${imagePath}`);
-            $('#meta_titles').val($(this).attr('data-title'));
-            $('#mete_description').val($(this).attr('data-des'));
-            $('#mete_keys').val($(this).attr('data-key'));
-            $('#name').val($(this).attr('data-name'));
-            $('#description').val($(this).attr('data-description'));
-            $('#alt_key').val($(this).attr('data-altkey'));
-            $('#url').val($(this).attr('data-url'));
-            $('#conntent1').summernote('code', $(this).attr('data-feet_content'));
-             const catId = $(this).attr("data-headingid");
-            $("#seo_select")
-                .find(`option[value="${catId}"]`)
-                .prop("selected", true);
-       })
-    });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>  
-    <script>
-        $(document).ready(function() {
-           $('#conntent').summernote({
-        height: 200,
-        toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['fontsize', ['fontsize']],
-            ['fontname', ['fontname']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']],
-        ],
-        fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
-        fontNames: [
-            'Arial',
-            'Arial Black',
-            'Comic Sans MS',
-            'Courier New',
-            'Montserrat',
-            'Merriweather',
-            'Roboto',
-            'Times New Roman'
-        ],
-      
-    });
-         $('#conntent1').summernote({
-    height: 200,
-    toolbar: [
-        ['style', ['style']],
-        ['font', ['bold', 'underline', 'clear']],
-        ['fontsize', ['fontsize']],
-        ['fontname', ['fontname']],
-        ['color', ['color']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview', 'help']],
-    ],
-    fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
-    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','Montserrat', 'Merriweather', 'Roboto', 'Times New Roman'],
-});
-        });
-        // $('.editproduct').on('click', function() {
-
-
-
-           
-
-        // });
-    </script>
+--}}
 @endsection

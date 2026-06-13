@@ -544,8 +544,8 @@
         padding: 16px 18px;
         border: 1px solid var(--bank-border);
         border-radius: 16px;
-        background: rgba(255,255,255,0.04);
-        color: rgba(255,255,255,0.76);
+        background: rgba(229,58,18,0.04);
+        color: rgba(0,0,0,0.76);
         font-weight: 700;
         text-align: center;
     }

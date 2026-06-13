@@ -100,7 +100,7 @@
     .method-kicker {
         border-color: var(--line-gold) !important;
         background: rgba(212,134,10,0.1) !important;
-        color: var(--gold-light) !important;
+        color:  rgb(229,58,18)!important;
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 22px rgba(212,134,10,0.08);
     }
 

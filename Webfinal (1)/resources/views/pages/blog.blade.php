@@ -128,14 +128,14 @@
             </div>
 
             <!-- DIVIDER -->
-            <hr class="safety-divider my-5" style="border-color: var(--gold-light); opacity: 0.3;">
+            <!-- <hr class="safety-divider my-5" style="border-color: var(--gold-light); opacity: 0.3;"> -->
 
-            <div class="section-header text-center mb-5">
+            <!-- <div class="section-header text-center mb-5">
                 <span class="b-eyebrow">Additional Resources</span>
                 <h2 class="b-title">Latest Articles & Tips</h2>
                 <div class="b-title-sep"></div>
-            </div>
-
+            </div> -->
+<!-- 
             @if($blogs->isEmpty())
                 <div class="blog-empty-luxury wow fadeIn">
                     <div class="empty-icon-wrap">
@@ -145,8 +145,8 @@
                     <p>Our artisans are busy crafting fireworks. New stories are launching soon — stay tuned for brilliance.</p>
                     <a href="{{ url('/') }}" class="cta-btn-gold mt-4"><span>Return to Home</span></a>
                 </div>
-            @else
-                <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+            @else -->
+                <!-- <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
                     @foreach($blogs as $index => $blog)
                         <div class="col wow fadeInUp" data-wow-delay="{{ 0.1 * ($index % 3) }}s">
                             <article class="luxury-blog-card">
@@ -178,16 +178,16 @@
                             </article>
                         </div>
                     @endforeach
-                </div>
+                </div> -->
 
                 <!-- Premium Pagination -->
-                <div class="row mt-5 pt-4">
+                <!-- <div class="row mt-5 pt-4">
                     <div class="col-12">
                         <div class="luxury-pagination-wrap">
                             {!! $blogs->links() !!}
                         </div>
                     </div>
-                </div>
+                </div> -->
             @endif
 
         </div>
@@ -294,7 +294,7 @@
 
         /* Blog Grid */
         .premium-blog-section {
-            padding: 120px 0;
+            padding: 30px 0;
             background: var(--cream);
             position: relative;
         }
@@ -680,7 +680,7 @@
             gap: 8px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
             border: 1.5px solid rgba(255, 255, 255, 0.6);
-            color: #FFFFFF !important;
+            /* color: #FFFFFF !important; */
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 3.5px;
