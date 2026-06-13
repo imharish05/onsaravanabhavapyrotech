@@ -1094,7 +1094,6 @@ thead th,
                         <tr>
                             <th><i class="fa-solid fa-camera"></i></th>
                             <th>Product Details</th>
-                            <th><i class="fa-solid fa-play"></i></th>
                             <th>Box Content</th>
                             <th>MRP</th>
                             <th>Offer Price</th>
@@ -1115,11 +1114,7 @@ thead th,
                                         </td>
                                         <td class="product-name">{{ $product->product_name }}</td>
                                         <td>
-                                            @if($product->product_video)
-                                                <a href="{{ $product->product_video }}" target="_blank" class="video-icon" title="Watch Video"></a>
-                                            @else
-                                                <span class="video-icon disabled"></span>
-                                            @endif
+                                            {{-- Video button removed for estimate page --}}
                                         </td>
                                         <td class="notranslate">{{ $product->product_content }}</td>
                                         <td class="actual notranslate">{{ $product->product_mrp_price }}</td>

@@ -230,7 +230,9 @@
     .product-name,
     .rowTotal,
     .category td,
-    .summary-value {
+    .summary-value,
+    .qty,
+    .cart-item-total {
         color: #000 !important;
     }
 
@@ -245,7 +247,11 @@
     .fin-row,
     .slab-meta,
     .summary-label,
-    thead th {
+    thead th,
+    .actual,
+    .cart-item-meta,
+    .min-order-status,
+    .product-row td:nth-child(4) {
         color: rgba(0,0,0,0.62) !important;
     }
 
@@ -258,6 +264,41 @@
     .fin-row.total .val,
     .token-id {
         color: #e53a12 !important;
+    }
+
+    .video-icon {
+        background: #ff4757 !important;
+        box-shadow: 0 0 0 2px rgba(255,255,255,0.8), 0 4px 12px rgba(255,71,87,0.3) !important;
+    }
+    .video-icon::after {
+        color: #fff !important;
+    }
+
+    .search-wrap input {
+        color: #000 !important;
+    }
+    .search-wrap input::placeholder {
+        color: rgba(0,0,0,0.48) !important;
+    }
+    .clear-search-btn {
+        background: rgba(0,0,0,0.08) !important;
+        border: 1px solid rgba(0,0,0,0.12) !important;
+        color: #000 !important;
+    }
+
+    .qty-btn {
+        background: #e8e8e8 !important;
+        color: #000 !important;
+        border: 1px solid rgba(0,0,0,0.15) !important;
+    }
+    .qty-btn:hover {
+        background: #e53a12 !important;
+        color: #fff !important;
+    }
+
+    .qty-wrapper {
+        background: #f0f0f0 !important;
+        border: 1px solid rgba(0,0,0,0.1) !important;
     }
 
     .btn-primary,

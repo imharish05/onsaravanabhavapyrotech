@@ -18,7 +18,7 @@ class BannerController extends Controller {
 
     public function addbanner( Request $request ) {
         $request->validate( [
-            'banner_image' => 'nullable|mimes:png,jpg,webp,jpeg,gif|max:15360'
+            'banner_image' => 'nullable|image|mimes:png,jpg,webp,jpeg,gif|max:15360' // 15MB max
         ] );
 
         if ( $request->hasFile( 'banner_image' ) ) {

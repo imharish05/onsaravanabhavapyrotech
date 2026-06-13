@@ -189,8 +189,8 @@
             z-index: 2;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            /* Shows full image */
+            object-fit: cover;
+            object-position: center;
             transition: transform 1.3s ease;
         }
 

@@ -956,15 +956,15 @@
     }
 
     .stat-item:nth-child(1) {
-        background: linear-gradient(145deg, rgba(0, 210, 255, 0.1), rgba(11, 11, 20, 0.8)) !important;
+        background:linear-gradient(145deg, rgba(142, 45, 226, 0.1), #e53a12) !important;
     }
 
     .stat-item:nth-child(3) {
-        background: linear-gradient(145deg, rgba(142, 45, 226, 0.1), rgba(11, 11, 20, 0.8)) !important;
+        background: linear-gradient(145deg, rgba(142, 45, 226, 0.1), #e53a12) !important;
     }
 
     .stat-item:nth-child(5) {
-        background: linear-gradient(145deg, rgba(56, 239, 125, 0.1), rgba(11, 11, 20, 0.8)) !important;
+        background: linear-gradient(145deg, rgba(142, 45, 226, 0.1), #e53a12) !important;
     }
 
     .stat-item:hover {
