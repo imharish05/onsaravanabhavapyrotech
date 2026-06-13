@@ -64,7 +64,7 @@
                                     <p>
                                         <a href="tel:{{ preg_replace('/[^0-9+]/', '', $contact->phone ?? '') }}">{{ $contact->phone ?? '+91 90259 78152' }}</a>
                                         @if($contact->phone_2)
-                                        <span class="mx-2 text-white-50">|</span>
+                                        <span class="mx-2">|</span>
                                         <a href="tel:{{ preg_replace('/[^0-9+]/', '', $contact->phone_2) }}">{{ $contact->phone_2 }}</a>
                                         @endif
                                     </p>

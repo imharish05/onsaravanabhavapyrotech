@@ -98,10 +98,19 @@
     .c-eyebrow,
     .order-modal-eyebrow,
     .method-kicker {
-        border-color: var(--line-gold) !important;
-        background: rgba(212,134,10,0.1) !important;
-        color:  rgb(229,58,18)!important;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 22px rgba(212,134,10,0.08);
+        background: rgba(255,255,255,0.05) !important;
+        border: 2px solid var(--line-gold) !important;
+        color: var(--gold-light) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 8px 24px !important;
+        border-radius: 40px !important;
+        font-size: 0.75rem !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        font-weight: 800 !important;
+        margin-bottom: 25px !important;
     }
 
     .hero-sep,
@@ -272,6 +281,14 @@
     }
     .video-icon::after {
         color: #fff !important;
+    }
+
+    .ib-content h6 {
+        color: #000 !important;
+    }
+    .ib-content p,
+    .ib-content a {
+        color: rgba(0,0,0,0.65) !important;
     }
 
     .search-wrap input {

@@ -259,7 +259,6 @@
         font-size: 0.85rem;
         margin-bottom: 20px;
         display: block;
-        background: transparent !important;
     }
 
     .hero-display-title {
