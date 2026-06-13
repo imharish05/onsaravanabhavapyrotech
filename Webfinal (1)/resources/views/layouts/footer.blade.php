@@ -79,7 +79,7 @@
         @endif
 
         <div class="f-bottom">
-            <div class="f-copy">&copy; {{ date('Y') }}SriSri Shyam Crackers. All Rights Reserved.</div>
+            <div class="f-copy">&copy; {{ date('Y') }}OM Saravanabhava Pyrotech. All Rights Reserved.</div>
             <div class="f-author">Crafted with ❤️ by <a href="https://saitechnosolutions.com" target="_blank">Sai Techno
                     Solutions</a></div>
         </div>
@@ -258,14 +258,14 @@
 
     /* SEO Matrix */
     .f-seo-matrix {
-        padding: 80px 0;
+        padding: 30px 0;
         border-top: 2px solid rgba(0, 0, 0, 0.1);
     }
 
     .f-seo-row {
         display: flex;
         gap: 20px;
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
         align-items: flex-start;
     }
 
