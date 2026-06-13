@@ -235,8 +235,8 @@
             align-items: center;
             gap: 8px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-            border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
-            color: #FFFFFF !important;
+            /* border: 1.5px solid rgba(255, 255, 255, 0.6) !important; */
+            /* color: #FFFFFF !important; */
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 3px;
