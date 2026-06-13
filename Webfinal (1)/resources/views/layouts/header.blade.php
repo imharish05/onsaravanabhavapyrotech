@@ -31,7 +31,7 @@
             <a href="{{ url('/about') }}"   class="hdr-link {{ request()->is('about') ? 'hdr-link--active' : '' }}">About</a>
             <a href="{{ url('/estimate') }}" class="hdr-link {{ request()->is('estimate') ? 'hdr-link--active' : '' }}">Catalogue</a>
             <a href="{{ url('/bank') }}"    class="hdr-link {{ request()->is('bank') ? 'hdr-link--active' : '' }}">Payment</a>
-            <a href="{{ url('/blog') }}"    class="hdr-link {{ request()->is('blog*') ? 'hdr-link--active' : '' }}">Blog</a>
+            <a href="{{ url('/blog') }}"    class="hdr-link {{ request()->is('blog*') ? 'hdr-link--active' : '' }}">Safety Tips</a>
             <a href="{{ url('/contact') }}" class="hdr-link {{ request()->is('contact') ? 'hdr-link--active' : '' }}">Contact</a>
         </nav>
 
@@ -79,7 +79,7 @@
             <a href="{{ url('/about') }}"   class="hdr-mobile-link {{ request()->is('about') ? 'hdr-mobile-link--active' : '' }}"><i class="fa-solid fa-feather-pointed"></i> About</a>
             <a href="{{ url('/estimate') }}" class="hdr-mobile-link {{ request()->is('estimate') ? 'hdr-mobile-link--active' : '' }}"><i class="fa-solid fa-fire-extinguisher"></i> Catalogue</a>
             <a href="{{ url('/bank') }}"    class="hdr-mobile-link {{ request()->is('bank') ? 'hdr-mobile-link--active' : '' }}"><i class="fa-solid fa-credit-card"></i> Payment</a>
-            <a href="{{ url('/blog') }}"    class="hdr-mobile-link {{ request()->is('blog*') ? 'hdr-mobile-link--active' : '' }}"><i class="fa-solid fa-newspaper"></i> Blog</a>
+            <a href="{{ url('/blog') }}"    class="hdr-mobile-link {{ request()->is('blog*') ? 'hdr-mobile-link--active' : '' }}"><i class="fa-solid fa-shield-halved"></i> Safety Tips</a>
             <a href="{{ url('/contact') }}" class="hdr-mobile-link {{ request()->is('contact') ? 'hdr-mobile-link--active' : '' }}"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </nav>
         <div class="hdr-mobile-footer">

@@ -12,11 +12,10 @@
         <div class="hero-content-wrap">
             <div class="container">
                 <div class="hero-text-center">
-                    <span class="hero-eyebrow"><i class="fa-solid fa-feather-pointed"></i> The Festive Blog</span>
-                    <h1 class="hero-display-title">Stories of <span>Brilliance</span></h1>
+                    <span class="hero-eyebrow"><i class="fa-solid fa-shield-halved"></i> Fireworks Safety</span>
+                    <h1 class="hero-display-title">Stay <span>Safe</span> This Diwali</h1>
                     <div class="hero-sep"></div>
-                    <p class="hero-subtitle">Exploring the art, safety, and heritage of India's finest fireworks About from
-                        the heart of Sivakasi.</p>
+                    <p class="hero-subtitle">Essential do's and don'ts for purchasing, bursting, and storing crackers safely. A little negligence can cause fatal injuries.</p>
                 </div>
             </div>
         </div>
@@ -30,8 +29,110 @@
         <div class="container">
 
             <div class="section-header text-center mb-5">
-                <span class="b-eyebrow">Our Latest Articles</span>
-                <h2 class="b-title">Celebration Chronicles</h2>
+                <span class="b-eyebrow">Essential Safety Guidelines</span>
+                <h2 class="b-title">Do's & Don'ts for Safe Fireworks</h2>
+                <div class="b-title-sep"></div>
+            </div>
+
+            <!-- SAFETY TIPS SECTION -->
+            <div class="safety-tips-wrapper mb-5 pb-4">
+                <div class="row g-4">
+                    <!-- DO'S Column -->
+                    <div class="col-lg-6">
+                        <div class="safety-card dos-card">
+                            <h3 class="safety-card-title"><i class="fa-solid fa-check-circle"></i> Do's</h3>
+                            <ul class="safety-list">
+                                <li>
+                                    <span class="safety-icon"><i class="fa-solid fa-check"></i></span>
+                                    <div>
+                                        <strong>Instructions</strong>
+                                        <p>Display fireworks as per the instructions mentioned on the pack.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon"><i class="fa-solid fa-check"></i></span>
+                                    <div>
+                                        <strong>Outdoor</strong>
+                                        <p>Use fireworks only outdoor</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon"><i class="fa-solid fa-check"></i></span>
+                                    <div>
+                                        <strong>Branded Fireworks</strong>
+                                        <p>Buy fireworks from authorized / reputed manufacturers only.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon"><i class="fa-solid fa-check"></i></span>
+                                    <div>
+                                        <strong>Distance</strong>
+                                        <p>Light only one firework at a time, by one person. Others should watch from a safe distance.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon"><i class="fa-solid fa-check"></i></span>
+                                    <div>
+                                        <strong>Water</strong>
+                                        <p>Keep two buckets of water handy. In the event of fire or any mishap.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- DON'TS Column -->
+                    <div class="col-lg-6">
+                        <div class="safety-card donts-card">
+                            <h3 class="safety-card-title"><i class="fa-solid fa-circle-xmark"></i> Don'ts</h3>
+                            <ul class="safety-list">
+                                <li>
+                                    <span class="safety-icon donts-icon"><i class="fa-solid fa-xmark"></i></span>
+                                    <div>
+                                        <strong>Don't make tricks</strong>
+                                        <p>Never make your own fireworks.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon donts-icon"><i class="fa-solid fa-xmark"></i></span>
+                                    <div>
+                                        <strong>Don't relight</strong>
+                                        <p>Never try to re-light or pick up fireworks that have not ignited fully.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon donts-icon"><i class="fa-solid fa-xmark"></i></span>
+                                    <div>
+                                        <strong>Don't carry it</strong>
+                                        <p>Never carry fireworks in your pockets</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon donts-icon"><i class="fa-solid fa-xmark"></i></span>
+                                    <div>
+                                        <strong>Don't Touch it</strong>
+                                        <p>After fireworks display never pick up fireworks that may be left over, they still may be active.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="safety-icon donts-icon"><i class="fa-solid fa-xmark"></i></span>
+                                    <div>
+                                        <strong>Don't wear loose clothes</strong>
+                                        <p>Do not wear loose clothing while using fireworks.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIVIDER -->
+            <hr class="safety-divider my-5" style="border-color: var(--gold-light); opacity: 0.3;">
+
+            <div class="section-header text-center mb-5">
+                <span class="b-eyebrow">Additional Resources</span>
+                <h2 class="b-title">Latest Articles & Tips</h2>
                 <div class="b-title-sep"></div>
             </div>
 
@@ -737,6 +838,164 @@
             grid-template-columns: 1fr 1fr !important;
         }
         }
+
+/* ===========================================
+   SAFETY CARDS — DO'S & DON'TS
+   =========================================== */
+.safety-tips-wrapper {
+    position: relative;
+}
+
+.safety-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 28px;
+    padding: 40px 35px 35px;
+    height: 100%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.2);
+    transition: transform .4s ease, box-shadow .4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.safety-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    border-radius: 28px 28px 0 0;
+}
+
+.dos-card::before {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+.donts-card::before {
+    background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.safety-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 70px rgba(0,0,0,0.3);
+    border-color: rgba(255,255,255,0.4);
+}
+
+.safety-card-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dos-card .safety-card-title {
+    color: #2ecc71;
+}
+
+.donts-card .safety-card-title {
+    color: #e74c3c;
+}
+
+.safety-card-title i {
+    font-size: 1.6rem;
+}
+
+.safety-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.safety-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background .3s ease, transform .3s ease, border-color .3s ease;
+}
+
+.safety-list li:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(4px);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.safety-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.dos-card .safety-icon {
+    background: rgba(46,204,113,0.2);
+    color: #2ecc71;
+}
+
+.donts-card .safety-icon {
+    background: rgba(231,76,60,0.2);
+    color: #e74c3c;
+}
+
+.safety-list li div {
+    flex: 1;
+}
+
+.safety-list li strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.safety-list li p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: rgba(0,0,0,0.65);
+    line-height: 1.5;
+}
+
+.safety-divider {
+    opacity: 0.15 !important;
+    border-width: 2px !important;
+}
+
+@media (max-width: 575px) {
+    .safety-card {
+        padding: 28px 22px 25px;
+    }
+    .safety-card-title {
+        font-size: 1.4rem;
+    }
+    .safety-list li {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+    .safety-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 0.75rem;
+    }
+}
     </style>
 
     <script>

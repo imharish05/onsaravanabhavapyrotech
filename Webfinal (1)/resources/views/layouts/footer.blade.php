@@ -27,7 +27,7 @@
                 <h4 class="f-title">Company</h4>
                 <ul class="f-list">
                     <li><a href="{{ url('/about') }}">About Us</a></li>
-                    <li><a href="{{ url('/blog') }}">Blog</a></li>
+                    <li><a href="{{ url('/blog') }}">Safety Tips</a></li>
                     <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                     <li><a href="{{ url('/bank') }}">Bank Details</a></li>
                 </ul>
