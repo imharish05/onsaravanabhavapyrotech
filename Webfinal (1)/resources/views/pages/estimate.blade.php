@@ -28,7 +28,7 @@
 
 /* 1. Page & Layout */
 .estimate-page { 
-    background: var(--cream); 
+    background: #FFFFFF; 
     min-height: 100vh;
 }
 
@@ -1005,7 +1005,7 @@ thead th,
     }
 
     .product-row {
-        background: rgba(15,15,28,0.92);
+        /* background: rgba(15,15,28,0.92); */
         border: 1px solid rgba(240,168,50,0.18);
         border-radius: 18px;
         padding: 14px 14px 14px 110px !important;
